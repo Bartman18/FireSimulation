@@ -5,4 +5,6 @@ module com.example.testtow {
 
     opens com.example.testtow to javafx.fxml;
     exports com.example.testtow;
+    exports com.example.testtow.firetrucks;
+    opens com.example.testtow.firetrucks to javafx.fxml;
 }
