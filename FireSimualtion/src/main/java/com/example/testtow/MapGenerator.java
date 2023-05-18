@@ -19,17 +19,16 @@ import javafx.stage.Stage;
 
 public class MapGenerator {
     FireControl fireControl = new FireControl();
+    boolean next = true;
     public void MapGeneration(Stage primaryStage)
     {
         Group root = new Group();
         Scene scene = new Scene(root,800, 600, Color.GREEN);
 
-
         primaryStage.setTitle("FireSimulation");
         primaryStage.setResizable(false);
 
-
-
+        //region lines
         Line line1 = new Line();
         line1.setStartX(0);
         line1.setStartY(300);
@@ -71,8 +70,9 @@ public class MapGenerator {
         line6.setEndX(400);
         line6.setEndY(400);
         line6.setStrokeWidth(5);
+        //endregion
 
-
+        //region firestation
         Rectangle FireStation = new Rectangle(100,50,Color.RED);
         FireStation.setY(250);
         FireStation.setX(500);
@@ -84,42 +84,62 @@ public class MapGenerator {
         text1.setWrappingWidth(FireStation.getWidth() + 15);
         text1.setX(FireStation.getX() );
         text1.setY(FireStation.getY() + FireStation.getHeight() / 2 + text1.getBoundsInLocal().getHeight() / 2);
+        //endregion
 
-
-
-
-
+        //region right panel
         Rectangle whiteRect = new Rectangle(600, 0, 200, 600);
         whiteRect.setFill(Color.WHITE);
+        //endregion
 
-
-
+        //region fires
         Rectangle fire;
-        fire = fireControl.getFire();
-        Rectangle fire1;
-        fire1 = fireControl.getFire();
-        Rectangle fire2;
-        fire2 = fireControl.getFire();
+        fire = fireControl.getFire(30,265,30,265);
+        fire = GetBetterPosition(fire,line3,30,265,30,265);
 
+        Rectangle fire1;
+        fire1 = fireControl.getFire(335,570,30,265);
+        fire1 = GetBetterPosition(fire1,line5,335,570,30,265);
+
+        Rectangle fire2;
+        fire2 = fireControl.getFire(30,265,335,570);
+        fire2 = GetBetterPosition(fire2,line4,30,265,335,570);
+
+        Rectangle fire3;
+        fire3 = fireControl.getFire(335,570,335,570);
+        fire3 = GetBetterPosition(fire3,line6,335,570,335,570);
+
+        //endregion
+
+        //region control room
         ControlRoom controlRoom = new ControlRoom();
         Rectangle rect;
         rect = controlRoom.RightUpper();
+        //endregion
 
-
-
-
-
-
+        //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
-        root.getChildren().addAll(fire, fire1, fire2);
+        root.getChildren().addAll(fire, fire1, fire2,fire3);
+
         root.getChildren().add(rect);
-
-
-
-
-
         primaryStage.setScene(scene);
         primaryStage.show();
+        //endregion
+    }
+    public Rectangle GetBetterPosition(Rectangle fire, Line line, int Xstart, int Xend, int Ystart,int Yend)
+    {
+        while (next)
+        {
+            fire = fireControl.getFire(Xstart,Xend, Ystart,Yend);
+            if (!(fire.getX() >= line.getStartX() - 30 &&
+                    fire.getX() <= line.getEndX() + 30 &&
+                    fire.getY() >= line.getStartY() - 30 &&
+                    fire.getY() <= line.getEndY() + 30))
+            {
+                next = false;
+            }
+        }
+        next = true;
+        return fire;
     }
 }

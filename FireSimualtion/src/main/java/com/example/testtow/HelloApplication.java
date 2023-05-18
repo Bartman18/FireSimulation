@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
         @Override
         public void start(Stage primaryStage) throws Exception {
             FireControl fireControl = new FireControl();
-            fireControl.getFire();
+            //fireControl.getFire();
 
 
             MapGenerator mapGenerator = new MapGenerator();
