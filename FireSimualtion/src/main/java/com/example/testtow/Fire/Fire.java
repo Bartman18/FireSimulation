@@ -20,7 +20,7 @@ public Fire(int strength_, int centerOfFireY_, int centerOfFireX_)
     }
 
     public int getStrengh() {
-        return strengh;
+        return strength;
     }
 }
 

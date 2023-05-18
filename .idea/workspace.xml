@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa04284-0d0a-452a-8fc7-c28fc5cc843a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/Fire.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/Fire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/module-info.java" afterDir="false" />
