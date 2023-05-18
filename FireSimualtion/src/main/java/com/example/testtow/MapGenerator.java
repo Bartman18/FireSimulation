@@ -92,16 +92,19 @@ public class MapGenerator {
 
 
 
-        Rectangle fire = new Rectangle();
+        Rectangle fire;
         fire = fireControl.getFire();
-
+        Rectangle fire1;
+        fire1 = fireControl.getFire();
+        Rectangle fire2;
+        fire2 = fireControl.getFire();
 
 
 
 
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
-        root.getChildren().add(fire);
+        root.getChildren().addAll(fire, fire1, fire2);
 
 
 
