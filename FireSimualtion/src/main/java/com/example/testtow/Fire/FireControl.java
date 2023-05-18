@@ -8,6 +8,8 @@ import java.util.Random;
 public class FireControl
 {
     Random generator = new Random();
+    Fire fire = new Fire(3,generator.nextInt(590), generator.nextInt(590));
+
 
     public Rectangle getFire() {
             Fire fire = new Fire(generator.nextInt(30), generator.nextInt(590), generator.nextInt(590));
@@ -17,6 +19,5 @@ public class FireControl
     }
     public void SetFirePlace()
     {
-
     }
 }

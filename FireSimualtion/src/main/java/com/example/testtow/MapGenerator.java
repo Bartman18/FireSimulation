@@ -1,11 +1,13 @@
 package com.example.testtow;
 
 import com.example.testtow.Fire.FireControl;
+import com.example.testtow.firetrucks.ControlRoom;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -99,12 +101,19 @@ public class MapGenerator {
         Rectangle fire2;
         fire2 = fireControl.getFire();
 
+        ControlRoom controlRoom = new ControlRoom();
+        Rectangle rect;
+        rect = controlRoom.RightUpper();
+
+
+
 
 
 
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
         root.getChildren().addAll(fire, fire1, fire2);
+        root.getChildren().add(rect);
 
 
 

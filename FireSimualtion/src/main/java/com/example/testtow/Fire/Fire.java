@@ -1,13 +1,13 @@
 package com.example.testtow.Fire;
 
 public class Fire  {
-    private int strengh;
+    private int strength;
     private  int centerOfFireX;
     private int centerOfFireY;
 
-public Fire(int strengh_, int centerOfFireY_, int centerOfFireX_)
+public Fire(int strength_, int centerOfFireY_, int centerOfFireX_)
 {
-    this.strengh = strengh_;
+    this.strength = strength_;
     this.centerOfFireY = centerOfFireY_;
     this.centerOfFireX = centerOfFireX_;
 }
