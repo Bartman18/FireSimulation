@@ -22,9 +22,15 @@ public class HelloApplication extends Application {
 
         @Override
         public void start(Stage primaryStage) throws Exception {
+
         MapGenerator mapGenerator = new MapGenerator();
+        Fire fire = new Fire();
         mapGenerator.MapGeneration(primaryStage);
             FireTruck fireTruck1 = new FireTruck(1, 2,2,2,2);
+
+
+
+
         }
         public static void main(String[] args) {
             launch(args);

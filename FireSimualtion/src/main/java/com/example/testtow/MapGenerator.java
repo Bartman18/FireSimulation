@@ -2,6 +2,9 @@ package com.example.testtow;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -15,11 +18,14 @@ public class MapGenerator {
     public void MapGeneration(Stage primaryStage)
     {
         Group root = new Group();
-        Scene scene = new Scene(root,800, 600, Color.WHITE);
+        Scene scene = new Scene(root,800, 600, Color.GREEN);
+
 
         primaryStage.setTitle("FireSimulation");
+        primaryStage.setResizable(false);
 
-        Rectangle forest = new Rectangle(605,600,Color.GREEN);
+
+
         Line line1 = new Line();
         line1.setStartX(0);
         line1.setStartY(300);
@@ -75,7 +81,27 @@ public class MapGenerator {
         text1.setX(FireStation.getX() );
         text1.setY(FireStation.getY() + FireStation.getHeight() / 2 + text1.getBoundsInLocal().getHeight() / 2);
 
-        root.getChildren().addAll(forest, line1, line2, line3, line4, line5, line6, FireStation, text1);
+
+
+
+
+        Rectangle whiteRect = new Rectangle(600, 0, 200, 600);
+        whiteRect.setFill(Color.WHITE);
+
+
+
+
+
+
+
+
+
+        root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
+        root.getChildren().add(whiteRect);
+
+
+
+
 
         primaryStage.setScene(scene);
         primaryStage.show();

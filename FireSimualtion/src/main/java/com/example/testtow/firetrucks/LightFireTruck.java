@@ -4,10 +4,12 @@ import com.example.testtow.firetrucks.FireTruck;
 import javafx.scene.image.Image;
 
 public class LightFireTruck extends FireTruck {
-    public LightFireTruck(int ID, int maxWaterStorage, int actualWaterStorage, float speed, float refillingSpeed){
+    private boolean isInRange;
+    public LightFireTruck(int ID, int maxWaterStorage, int actualWaterStorage, float speed, float refillingSpeed,boolean isInRange){
         super(ID,maxWaterStorage,actualWaterStorage,speed,refillingSpeed);
+        this.isInRange = isInRange;
     }
-    Image lightTruck = new Image("C:\\Users\\User\\Downloads\\images.png");
+
 
 
 }
