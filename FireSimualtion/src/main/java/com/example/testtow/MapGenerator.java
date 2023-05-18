@@ -1,5 +1,6 @@
 package com.example.testtow;
 
+import com.example.testtow.Fire.FireControl;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +16,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class MapGenerator {
+    FireControl fireControl = new FireControl();
     public void MapGeneration(Stage primaryStage)
     {
         Group root = new Group();
@@ -90,7 +92,8 @@ public class MapGenerator {
 
 
 
-
+        Rectangle fire = new Rectangle();
+        fire = fireControl.getFire();
 
 
 
@@ -98,6 +101,7 @@ public class MapGenerator {
 
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
+        root.getChildren().add(fire);
 
 
 

@@ -7,4 +7,6 @@ module com.example.testtow {
     exports com.example.testtow;
     exports com.example.testtow.firetrucks;
     opens com.example.testtow.firetrucks to javafx.fxml;
+    exports com.example.testtow.Fire;
+    opens com.example.testtow.Fire to javafx.fxml;
 }
