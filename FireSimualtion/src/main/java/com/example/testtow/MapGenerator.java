@@ -91,6 +91,7 @@ public class MapGenerator {
         whiteRect.setFill(Color.WHITE);
         //endregion
 
+        Rectangle test = new Rectangle(470,220,30,30);
         //region fires
         Rectangle fire;
         fire = fireControl.getFire(30,265,30,265);
@@ -99,6 +100,7 @@ public class MapGenerator {
         Rectangle fire1;
         fire1 = fireControl.getFire(335,570,30,265);
         fire1 = GetBetterPosition(fire1,line5,335,570,30,265);
+        fire1 = IsOnFireStation(fire1,335,570,30,265);
 
         Rectangle fire2;
         fire2 = fireControl.getFire(30,265,335,570);
@@ -119,7 +121,7 @@ public class MapGenerator {
         //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
-        root.getChildren().addAll(fire, fire1, fire2,fire3);
+        root.getChildren().addAll(test,fire, fire1, fire2,fire3);
 
         root.getChildren().add(rect);
         primaryStage.setScene(scene);
@@ -128,18 +130,40 @@ public class MapGenerator {
     }
     public Rectangle GetBetterPosition(Rectangle fire, Line line, int Xstart, int Xend, int Ystart,int Yend)
     {
-        while (next)
+        for (int i = 0; i < 1000; i++)
         {
-            fire = fireControl.getFire(Xstart,Xend, Ystart,Yend);
-            if (!(fire.getX() >= line.getStartX() - 30 &&
+            if (fire.getX() >= line.getStartX() - 30 &&
                     fire.getX() <= line.getEndX() + 30 &&
                     fire.getY() >= line.getStartY() - 30 &&
-                    fire.getY() <= line.getEndY() + 30))
+                    fire.getY() <= line.getEndY() + 30)
             {
-                next = false;
+                fire = fireControl.getFire(Xstart,Xend, Ystart,Yend);
             }
         }
-        next = true;
+        if (fire.getX() >= line.getStartX() - 30 &&
+                fire.getX() <= line.getEndX() + 30 &&
+                fire.getY() >= line.getStartY() - 30 &&
+                fire.getY() <= line.getEndY() + 30)
+        {
+            fire = new Rectangle(600/(fire.getX()%300),600/(fire.getY()%300));
+        }
+        return fire;
+    }
+    public Rectangle IsOnFireStation(Rectangle fire, int Xstart, int Xend, int Ystart,int Yend)
+    {
+        for (int i = 0; i < 200; i++)
+        {
+            fire = fireControl.getFire(Xstart,Xend, Ystart,Yend);
+            if (fire.getX() >=220 &&
+                    fire.getY() >= 470)
+            {
+                fire = fireControl.getFire(Xstart,Xend, Ystart,Yend);
+            }
+        }
+        if (fire.getX() >=220 &&
+                fire.getY() >= 470) {
+        fire = new Rectangle(450,450);
+        }
         return fire;
     }
 }
