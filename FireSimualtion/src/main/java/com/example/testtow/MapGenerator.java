@@ -2,6 +2,8 @@ package com.example.testtow;
 
 import com.example.testtow.Fire.FireControl;
 import com.example.testtow.firetrucks.ControlRoom;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,6 +22,7 @@ import javafx.stage.Stage;
 public class MapGenerator {
     FireControl fireControl = new FireControl();
     boolean next = true;
+    EventHandler<ActionEvent> event = e -> GenerateReport.GenerateReport();
     public void MapGeneration(Stage primaryStage)
     {
         Group root = new Group();
@@ -27,6 +30,15 @@ public class MapGenerator {
 
         primaryStage.setTitle("FireSimulation");
         primaryStage.setResizable(false);
+
+        //region right panel
+        Button generateReport = new Button("Generate report");
+        generateReport.maxHeight(30);
+        generateReport.maxWidth(100);
+        generateReport.setLayoutX(650);
+        generateReport.setLayoutY(550);
+        generateReport.setOnAction(event);
+        //endregion
 
         //region lines
         Line line1 = new Line();
@@ -121,6 +133,7 @@ public class MapGenerator {
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
         root.getChildren().addAll(fire, fire1, fire2,fire3);
+        root.getChildren().add(generateReport);
 
         root.getChildren().add(rect);
         primaryStage.setScene(scene);
