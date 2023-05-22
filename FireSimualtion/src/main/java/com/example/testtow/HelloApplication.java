@@ -22,9 +22,11 @@ public class HelloApplication extends Application {
             FireTruck fireTruck1 = new FireTruck(1, 2,2,2,2);
 
 
-
         }
         public static void main(String[] args) {
+
+            //GenerateReport.GenerateReport();
             launch(args);
+
         }
     }

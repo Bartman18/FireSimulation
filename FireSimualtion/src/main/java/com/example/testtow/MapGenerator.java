@@ -91,7 +91,6 @@ public class MapGenerator {
         whiteRect.setFill(Color.WHITE);
         //endregion
 
-        Rectangle test = new Rectangle(470,220,30,30);
         //region fires
         Rectangle fire;
         fire = fireControl.getFire(30,265,30,265);
@@ -121,7 +120,7 @@ public class MapGenerator {
         //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
-        root.getChildren().addAll(test,fire, fire1, fire2,fire3);
+        root.getChildren().addAll(fire, fire1, fire2,fire3);
 
         root.getChildren().add(rect);
         primaryStage.setScene(scene);

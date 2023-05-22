@@ -1,6 +1,10 @@
 module com.example.testtow {
     requires javafx.controls;
     requires javafx.fxml;
+    requires flying.saucer.pdf;
+    requires itextpdf;
+    requires itext.rtf;
+    requires itext;
 
 
     opens com.example.testtow to javafx.fxml;
