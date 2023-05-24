@@ -97,11 +97,6 @@ public class ControlRoom {
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp,ttRight);
         sequentialTransition.play();
 
-
-
-
         return rect;
-
-
     }
 }
