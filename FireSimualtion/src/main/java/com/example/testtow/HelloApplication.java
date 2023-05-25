@@ -18,7 +18,6 @@ public class HelloApplication extends Application {
             Rectangle rect = new Rectangle(600, 600);
             mapGenerator.MapGeneration(primaryStage);
             FireTruck fireTruck1 = new FireTruck(1, 2, 2, 2, 2);
-            update();
         }
         public static void main(String[] args) {launch(args);}
 
@@ -30,9 +29,9 @@ public class HelloApplication extends Application {
     pressed before proceeding to the next iteration. So you end up with lots of windows...
     wziałem z stacka to, idk jak to inaczej rozwiążemy...
      */
-    public static void update() throws Exception{
-        int i=0;
-            for(i=0;i<5;i++) {
+    public static void update() {
+        System.out.println("penis");
+            for(int i=0;i<5;i++) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

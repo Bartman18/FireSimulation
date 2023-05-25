@@ -24,7 +24,7 @@ public class MapGenerator {
 
     EventHandler<ActionEvent> generateReportEvent = e -> GenerateReport.GenerateReport();
     EventHandler<ActionEvent> turnWindEvent = e -> FireControl.windChange();
-    //EventHandler<ActionEvent> restartEvent = e -> HelloApplication.start();
+    EventHandler<ActionEvent> startEvent = e -> HelloApplication.update();
     public void MapGeneration(Stage primaryStage) throws Exception {
         Group root = new Group();
         Scene scene = new Scene(root,800, 600, Color.GREEN);
@@ -47,12 +47,12 @@ public class MapGenerator {
         windOnTrue.setLayoutY(450);
         windOnTrue.setOnAction(turnWindEvent);
 
-        /*Button restart = new Button("restart");
-        restart.maxHeight(30);
-        restart.maxWidth(100);
-        restart.setLayoutX(650);
-        restart.setLayoutY(350);
-        windOnTrue.setOnAction(restartEvent);*/
+        Button start = new Button("start");
+        start.maxHeight(30);
+        start.maxWidth(100);
+        start.setLayoutX(650);
+        start.setLayoutY(350);
+        start.setOnAction(startEvent);
 
         //endregion
 
@@ -137,7 +137,7 @@ public class MapGenerator {
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
         root.getChildren().addAll(fire0, fire1, fire2, fire3);
-        root.getChildren().addAll(generateReport, windOnTrue);
+        root.getChildren().addAll(generateReport, windOnTrue, start);
 
         root.getChildren().add(fireControl.getWindText());
         root.getChildren().add(rect);
