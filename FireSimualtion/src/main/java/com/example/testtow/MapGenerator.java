@@ -25,9 +25,10 @@ public class MapGenerator {
 
     EventHandler<ActionEvent> generateReportEvent = e -> GenerateReport.GenerateReport();
     EventHandler<ActionEvent> turnWindEvent = e -> FireControl.windChange();
+
+    Group root = new Group();
     public void MapGeneration(Stage primaryStage) throws Exception {
-        Group root = new Group();
-        Scene scene = new Scene(root,800, 600, Color.GREEN);
+
 
         primaryStage.setTitle("FireSimulation");
         primaryStage.setResizable(false);
@@ -135,8 +136,10 @@ public class MapGenerator {
         root.getChildren().add(fireControl.getWindText());
         root.getChildren().add(HelloApplication.getTestText());
         root.getChildren().add(rect);
-        primaryStage.setScene(scene);
-        primaryStage.show();
         //endregion
+    }
+
+    public Group getRoot() {
+        return root;
     }
 }
