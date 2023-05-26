@@ -32,19 +32,27 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(mapGenerator.getRoot(),800, 600, Color.GREEN);
             mapGenerator.MapGeneration(primaryStage);
             FireTruck fireTruck1 = new FireTruck(1, 2, 2, 2, 2);
-
+            Rectangle fire0 = fireControl.getFire0();
+            Rectangle fire1 = fireControl.getFire1();
+            Rectangle fire2 = fireControl.getFire2();
+            Rectangle fire3 = fireControl.getFire3();
+            mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
             primaryStage.setScene(scene);
             primaryStage.show();
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
+
                     for (int i = 0; i < 1; i++) {
-                        double random = generator.nextInt(100);
+                        double random = generator.nextInt(50);
+                        //fire0.setWidth(fire0.getWidth()-1);
+                        //fire0.setHeight(fire0.getHeight()-1);
                         if (random == 1 && !czybylo)
                         {
                             additionalFire[j] = fireControl.getAdditionalFire0();
                             mapGenerator.root.getChildren().add(additionalFire[j]);
                             j++;
                             czybylo = true;
+                            //mapGenerator.root.getChildren().remove(fireControl.getFire0());
                         }
                     }
 

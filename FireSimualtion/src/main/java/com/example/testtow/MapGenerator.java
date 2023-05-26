@@ -115,11 +115,11 @@ public class MapGenerator {
 
         //region fires
         FireControl fireControl = new FireControl();
-        Rectangle fire0 = fireControl.getFire0();
+        /*//Rectangle fire0 = fireControl.getFire0();
         Rectangle fire1 = fireControl.getFire1();
         Rectangle fire2 = fireControl.getFire2();
         Rectangle fire3 = fireControl.getFire3();
-        //endregion
+        //endregion*/
 
         //region control room
         ControlRoom controlRoom = new ControlRoom();
@@ -130,7 +130,7 @@ public class MapGenerator {
         //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
-        root.getChildren().addAll(fire0, fire1, fire2, fire3);
+ //       root.getChildren().addAll(fireControl.getFire0(), fire1, fire2, fire3);
         root.getChildren().addAll(generateReport, windOnTrue);
 
         root.getChildren().add(fireControl.getWindText());
