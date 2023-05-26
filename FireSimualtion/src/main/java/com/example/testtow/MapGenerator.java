@@ -142,4 +142,9 @@ public class MapGenerator {
     public Group getRoot() {
         return root;
     }
+    public void aaaa()
+    {
+        FireControl fireControl = new FireControl();
+        fireControl.getFire0().getY();
+    }
 }

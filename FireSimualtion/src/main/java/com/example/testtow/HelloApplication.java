@@ -17,12 +17,14 @@ import java.util.Random;
 
 public class HelloApplication extends Application {
 
+    //region zmienna
     static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
     Random generator = new Random();
     Rectangle[] additionalFire = new Rectangle[50];
-
     int j;
+    boolean czybylo = false;
+    //endregion
     FireControl fireControl = new FireControl();
         @Override
         public void start(Stage primaryStage) throws Exception {
@@ -35,13 +37,14 @@ public class HelloApplication extends Application {
             primaryStage.show();
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
-                    for (int i = 0; i < 50; i++) {
+                    for (int i = 0; i < 1; i++) {
                         double random = generator.nextInt(100);
-                        if (random == 1 )
+                        if (random == 1 && !czybylo)
                         {
                             additionalFire[j] = fireControl.getAdditionalFire0();
                             mapGenerator.root.getChildren().add(additionalFire[j]);
                             j++;
+                            czybylo = true;
                         }
                     }
 
