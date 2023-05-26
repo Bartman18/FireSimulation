@@ -8,36 +8,47 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.animation.AnimationTimer;
+
+import java.util.Random;
 
 public class HelloApplication extends Application {
+
+    static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
+    Random generator = new Random();
+    Rectangle[] fire = new Rectangle[50];
+    int j;
     FireControl fireControl = new FireControl();
         @Override
         public void start(Stage primaryStage) throws Exception {
             Rectangle rect = new Rectangle(600, 600);
             mapGenerator.MapGeneration(primaryStage);
             FireTruck fireTruck1 = new FireTruck(1, 2, 2, 2, 2);
+            new AnimationTimer() {
+                @Override public void handle(long currentNanoTime) {
+                    for (int i = 0; i < 50; i++) {
+                        double random = generator.nextInt(10);
+                        if (random == 1 && fireControl.wind)
+                        {
+                            fire[j] = fireControl.getAdditionalFire0();
+                        }
+                    }
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        // Do nothing
+                    }
+                }
+            }.start();
         }
         public static void main(String[] args) {launch(args);}
 
 
-    /*
-    In GUI programming, always consider an event-driven approach before considering loop-based approaches.
-    Your while loop simply repeatedly creates controls, registers a listener with one of them (the button),
-    places the controls in a new window, and shows the window. The loop is not going to wait for the button to be
-    pressed before proceeding to the next iteration. So you end up with lots of windows...
-    wziałem z stacka to, idk jak to inaczej rozwiążemy...
-     */
-    public static void update() {
-        System.out.println("penis");
-            for(int i=0;i<5;i++) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-                System.out.println(i);
-        }
+    public static Text getTestText() {
+        return testText;
     }
 }

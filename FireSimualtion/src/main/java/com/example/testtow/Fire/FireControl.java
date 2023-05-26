@@ -17,6 +17,10 @@ public class FireControl
     Rectangle fire1 = LeftUpper();
     Rectangle fire2 = RightDown();
     Rectangle fire3 = LeftDown();
+    Rectangle additionalFire0 = RightUpper();
+    Rectangle additionalFire1 = LeftUpper();
+    Rectangle additionalFire2 = RightDown();
+    Rectangle additionalFire3 = LeftDown();
     //endregion
     public Rectangle getFire(int Xstart, int Xend, int Ystart, int Yend) {
         Fire fire = new Fire(generator.nextInt(10,30),generator.nextInt(Xstart,Xend), generator.nextInt(Ystart,Yend));
@@ -97,6 +101,23 @@ public class FireControl
     public Rectangle getFire3() {
         return fire3;
     }
+
+    public Rectangle getAdditionalFire0() {
+        return additionalFire0;
+    }
+
+    public Rectangle getAdditionalFire1() {
+        return additionalFire1;
+    }
+
+    public Rectangle getAdditionalFire2() {
+        return additionalFire2;
+    }
+
+    public Rectangle getAdditionalFire3() {
+        return additionalFire3;
+    }
+
     public static void windChange()
     {
         wind = (wind) ? false : true;

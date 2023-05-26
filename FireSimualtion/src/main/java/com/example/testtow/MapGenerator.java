@@ -18,13 +18,13 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.animation.AnimationTimer;
 
 public class MapGenerator {
 
 
     EventHandler<ActionEvent> generateReportEvent = e -> GenerateReport.GenerateReport();
     EventHandler<ActionEvent> turnWindEvent = e -> FireControl.windChange();
-    EventHandler<ActionEvent> startEvent = e -> HelloApplication.update();
     public void MapGeneration(Stage primaryStage) throws Exception {
         Group root = new Group();
         Scene scene = new Scene(root,800, 600, Color.GREEN);
@@ -46,13 +46,6 @@ public class MapGenerator {
         windOnTrue.setLayoutX(650);
         windOnTrue.setLayoutY(450);
         windOnTrue.setOnAction(turnWindEvent);
-
-        Button start = new Button("start");
-        start.maxHeight(30);
-        start.maxWidth(100);
-        start.setLayoutX(650);
-        start.setLayoutY(350);
-        start.setOnAction(startEvent);
 
         //endregion
 
@@ -137,9 +130,10 @@ public class MapGenerator {
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
         root.getChildren().addAll(fire0, fire1, fire2, fire3);
-        root.getChildren().addAll(generateReport, windOnTrue, start);
+        root.getChildren().addAll(generateReport, windOnTrue);
 
         root.getChildren().add(fireControl.getWindText());
+        root.getChildren().add(HelloApplication.getTestText());
         root.getChildren().add(rect);
         primaryStage.setScene(scene);
         primaryStage.show();
