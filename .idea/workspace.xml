@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa04284-0d0a-452a-8fc7-c28fc5cc843a" name="Changes" comment="JAkis push bo nie mam sily">
+    <list default="true" id="baa04284-0d0a-452a-8fc7-c28fc5cc843a" name="Changes" comment="big wall">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/MapGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/MapGenerator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,35 +151,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685123237625</updated>
     </task>
-    <task id="LOCAL-00008" summary="big wall">
-      <created>1685123626694</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1685123626694</updated>
-    </task>
-    <task id="LOCAL-00009" summary="big wall">
-      <created>1685127674170</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1685127674170</updated>
-    </task>
-    <task id="LOCAL-00010" summary="dziala">
-      <created>1685129244249</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1685129244249</updated>
-    </task>
-    <task id="LOCAL-00011" summary="JAkis push bo nie mam sily">
-      <created>1685132930222</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1685132930222</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,9 +171,7 @@
     <MESSAGE value="Maciokwate" />
     <MESSAGE value="Some improvemnts and big wall" />
     <MESSAGE value="big wall" />
-    <MESSAGE value="dziala" />
-    <MESSAGE value="JAkis push bo nie mam sily" />
-    <option name="LAST_COMMIT_MESSAGE" value="JAkis push bo nie mam sily" />
+    <option name="LAST_COMMIT_MESSAGE" value="big wall" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

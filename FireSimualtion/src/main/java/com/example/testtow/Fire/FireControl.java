@@ -13,14 +13,14 @@ public class FireControl
     public static boolean wind = false;
     Random generator = new Random();
     //region fires
-    Rectangle fire0 = RightUpper(30,265,30,265);
-    Rectangle fire1 = LeftUpper(335,570,30,265);
-    Rectangle fire2 = RightDown(30,265,335,570);
-    Rectangle fire3 = LeftDown(335,570,335,570);
-    Rectangle additionalFire0 = RightUpper((int)fire0.getX()-70,(int)fire0.getX()+70,(int)fire0.getY()-70,(int)fire0.getY()+70);
-    Rectangle additionalFire1 = LeftUpper((int)fire1.getX()-70,(int)fire1.getX()+70,(int)fire1.getY()-70,(int)fire1.getY()+7);
-    Rectangle additionalFire2 = RightDown((int)fire2.getX()-70,(int)fire2.getX()+70,(int)fire2.getY()-70,(int)fire2.getY()+7);
-    Rectangle additionalFire3 = LeftDown((int)fire3.getX()-70,(int)fire3.getX()+70,(int)fire3.getY()-70,(int)fire3.getY()+7);
+    Rectangle fire0 = RightUpper();
+    Rectangle fire1 = LeftUpper();
+    Rectangle fire2 = RightDown();
+    Rectangle fire3 = LeftDown();
+    Rectangle additionalFire0 = RightUpper();
+    Rectangle additionalFire1 = LeftUpper();
+    Rectangle additionalFire2 = RightDown();
+    Rectangle additionalFire3 = LeftDown();
     //endregion
     public Rectangle getFire(int Xstart, int Xend, int Ystart, int Yend) {
         Fire fire = new Fire(generator.nextInt(10,30),generator.nextInt(Xstart,Xend), generator.nextInt(Ystart,Yend));
@@ -29,31 +29,31 @@ public class FireControl
             return fireSprite;
     }
 
-    public Rectangle RightUpper(int Xstart, int Xend, int Ystart, int Yend)
+    public Rectangle RightUpper()
     {
         Rectangle fire;
-        fire = getFire(Xstart,Xend,Ystart,Yend);
+        fire = getFire(30,265,30,265);
         fire = GetBetterPosition(fire,new Line(150,200,150,300),30,265,30,265);
         return fire;
     }
-    public Rectangle LeftUpper(int Xstart, int Xend, int Ystart, int Yend)
+    public Rectangle LeftUpper()
     {
         Rectangle fire;
-        fire = getFire(Xstart,Xend,Ystart,Yend);
+        fire = getFire(335,570,30,265);
         fire = IsOnFireStation(fire,new Line(300, 150, 400, 150),335,570,30,265);
         return fire;
     }
-    public Rectangle RightDown(int Xstart, int Xend, int Ystart, int Yend)
+    public Rectangle RightDown()
     {
         Rectangle fire;
-        fire = getFire(Xstart,Xend,Ystart,Yend);
+        fire = getFire(30,265,335,570);
         fire = GetBetterPosition(fire,new Line(200, 500, 300, 500),30,265,335,570);
         return fire;
     }
-    public Rectangle LeftDown(int Xstart, int Xend, int Ystart, int Yend)
+    public Rectangle LeftDown()
     {
         Rectangle fire;
-        fire = getFire(Xstart,Xend,Ystart,Yend);
+        fire = getFire(335,570,335,570);
         fire = GetBetterPosition(fire,new Line(300,400,400,400),335,570,335,570);
         return fire;
     }
@@ -61,11 +61,10 @@ public class FireControl
     {
         for (int i = 0; i < 200; i++)
         {
-            if ((fire.getX() >= line.getStartX() - 30 &&
+            if (fire.getX() >= line.getStartX() - 30 &&
                     fire.getX() <= line.getEndX() + 30 &&
                     fire.getY() >= line.getStartY() - 30 &&
-                    fire.getY() <= line.getEndY() + 30)||
-                    (fire.getX()>=570 && fire.getX()<=30 && fire.getY()>=570 && fire.getY()<=30))
+                    fire.getY() <= line.getEndY() + 30)
             {
                 fire = getFire(Xstart,Xend, Ystart,Yend);
             }
