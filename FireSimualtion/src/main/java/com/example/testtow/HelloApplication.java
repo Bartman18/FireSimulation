@@ -46,7 +46,7 @@ public class HelloApplication extends Application {
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
 
-                    puttingOff(fire0 , 0.03);
+                    //puttingOff(fire0 , 0.03);
                     if (FireControl.wind) {
                         windBehavior();
                     }
@@ -67,34 +67,26 @@ public class HelloApplication extends Application {
 
     public void windBehavior()
     {
-        double random = generator.nextInt(1000);
+        double random = generator.nextInt(4000);
         if (random == 1 && isUsed0)
         {
             mapGenerator.root.getChildren().add(additionalFire0);
             isUsed0 = false;
-            System.out.println("1");
-            //mapGenerator.root.getChildren().remove(fireControl.getFire0());
         }
         if (random == 2 && isUsed1)
         {
             mapGenerator.root.getChildren().add(additionalFire1);
             isUsed1 = false;
-            System.out.println("2");
-            //mapGenerator.root.getChildren().remove(fireControl.getFire0());
         }
         if (random == 3 && isUsed2)
         {
             mapGenerator.root.getChildren().add(additionalFire2);
             isUsed2 = false;
-            System.out.println("3");
-            //mapGenerator.root.getChildren().remove(fireControl.getFire0());
         }
         if (random == 4 && isUsed3)
         {
             mapGenerator.root.getChildren().add(additionalFire3);
             isUsed3 = false;
-            System.out.println("4");
-            //mapGenerator.root.getChildren().remove(fireControl.getFire0());
         }
     }
     public void puttingOff(Rectangle fire, double power)

@@ -115,11 +115,7 @@ public class MapGenerator {
 
         //region fires
         FireControl fireControl = new FireControl();
-        /*//Rectangle fire0 = fireControl.getFire0();
-        Rectangle fire1 = fireControl.getFire1();
-        Rectangle fire2 = fireControl.getFire2();
-        Rectangle fire3 = fireControl.getFire3();
-        //endregion*/
+        //endregion
 
         //region control room
         ControlRoom controlRoom = new ControlRoom();
@@ -141,10 +137,5 @@ public class MapGenerator {
 
     public Group getRoot() {
         return root;
-    }
-    public void aaaa()
-    {
-        FireControl fireControl = new FireControl();
-        fireControl.getFire0().getY();
     }
 }
