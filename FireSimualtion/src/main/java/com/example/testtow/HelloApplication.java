@@ -45,6 +45,8 @@ public class HelloApplication extends Application {
             primaryStage.show();
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
+
+                    puttingOff(fire0 , 0.03);
                     if (FireControl.wind) {
                         windBehavior();
                     }
@@ -94,5 +96,10 @@ public class HelloApplication extends Application {
             System.out.println("4");
             //mapGenerator.root.getChildren().remove(fireControl.getFire0());
         }
+    }
+    public void puttingOff(Rectangle fire, double power)
+    {
+        fire.setHeight(fire.getHeight()-power);
+        fire.setWidth(fire.getWidth()-power);
     }
 }
