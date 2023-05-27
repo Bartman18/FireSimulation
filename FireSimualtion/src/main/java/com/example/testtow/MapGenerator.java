@@ -120,7 +120,7 @@ public class MapGenerator {
         //region control room
         ControlRoom controlRoom = new ControlRoom();
         Rectangle rect;
-        rect = controlRoom.RightUpper();
+        //rect = controlRoom.RightUpper();
         //endregion
 
         //region display
@@ -131,7 +131,7 @@ public class MapGenerator {
 
         root.getChildren().add(fireControl.getWindText());
         root.getChildren().add(HelloApplication.getTestText());
-        root.getChildren().add(rect);
+        //root.getChildren().add(rect);
         //endregion
     }
 
