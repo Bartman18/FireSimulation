@@ -13,25 +13,25 @@ public class FireControl
 {
     static Text windText = new Text(650,500,"wind: false");
     public static boolean wind = false;
-    Random generator = new Random();
+    static Random generator = new Random();
     //region fires
-    Rectangle fire0 = LeftUpper(30,265,30,265);
-    Rectangle fire1 = RightUpper(335,570,30,265);
-    Rectangle fire2 = LeftDown(30,265,335,570);
-    Rectangle fire3 = RightDown(335,570,335,570);
-    Rectangle additionalFire0 = LeftUpper((int)fire0.getX()-70,(int)fire0.getX()+70,(int)fire0.getY()-70,(int)fire0.getY()+70);
-    Rectangle additionalFire1 = RightUpper((int)fire1.getX()-70,(int)fire1.getX()+70,(int)fire1.getY()-70,(int)fire1.getY()+70);
-    Rectangle additionalFire2 = LeftDown((int)fire2.getX()-70,(int)fire2.getX()+70,(int)fire2.getY()-70,(int)fire2.getY()+70);
-    Rectangle additionalFire3 = RightDown((int)fire3.getX()-70,(int)fire3.getX()+70,(int)fire3.getY()-70,(int)fire3.getY()+70);
+    static Rectangle fire0 = LeftUpper(30,265,30,265);
+    static Rectangle fire1 = RightUpper(335,570,30,265);
+    static Rectangle fire2 = LeftDown(30,265,335,570);
+    static Rectangle fire3 = RightDown(335,570,335,570);
+    static Rectangle additionalFire0 = LeftUpper((int)fire0.getX()-70,(int)fire0.getX()+70,(int)fire0.getY()-70,(int)fire0.getY()+70);
+    static Rectangle additionalFire1 = RightUpper((int)fire1.getX()-70,(int)fire1.getX()+70,(int)fire1.getY()-70,(int)fire1.getY()+70);
+    static Rectangle additionalFire2 = LeftDown((int)fire2.getX()-70,(int)fire2.getX()+70,(int)fire2.getY()-70,(int)fire2.getY()+70);
+    static Rectangle additionalFire3 = RightDown((int)fire3.getX()-70,(int)fire3.getX()+70,(int)fire3.getY()-70,(int)fire3.getY()+70);
     //endregion
-    public Rectangle getFire(int Xstart, int Xend, int Ystart, int Yend) {
+    public static Rectangle getFire(int Xstart, int Xend, int Ystart, int Yend) {
         Fire fire = new Fire(generator.nextInt(10,30),generator.nextInt(Xstart,Xend), generator.nextInt(Ystart,Yend));
             Rectangle fireSprite = new Rectangle(fire.getCenterOfFireY(), fire.getCenterOfFireX(), fire.getStrengh(), fire.getStrengh());
             fireSprite.setFill(Color.ORANGE);
             return fireSprite;
     }
 
-    public Rectangle RightUpper(int Xstart, int Xend, int Ystart, int Yend)
+    public static Rectangle RightUpper(int Xstart, int Xend, int Ystart, int Yend)
     {
         if (Xstart<=335)
             Xstart=335;
@@ -46,7 +46,7 @@ public class FireControl
         fire = IsOnFireStation(fire,new Line(300, 150, 400, 150),Xstart,Xend,Ystart,Yend);
         return fire;
     }
-    public Rectangle LeftUpper(int Xstart, int Xend, int Ystart, int Yend)
+    public static Rectangle LeftUpper(int Xstart, int Xend, int Ystart, int Yend)
     {
         if (Xstart<=30)
             Xstart=30;
@@ -61,7 +61,7 @@ public class FireControl
         fire = GetBetterPosition(fire,new Line(150,200,150,300),Xstart,Xend,Ystart,Yend);
         return fire;
     }
-    public Rectangle RightDown(int Xstart, int Xend, int Ystart, int Yend)
+    public static Rectangle RightDown(int Xstart, int Xend, int Ystart, int Yend)
     {
         if (Xstart<=335)
             Xstart=335;
@@ -76,7 +76,7 @@ public class FireControl
         fire = GetBetterPosition(fire,new Line(300,400,400,400),Xstart,Xend,Ystart,Yend);
         return fire;
     }
-    public Rectangle LeftDown(int Xstart, int Xend, int Ystart, int Yend)
+    public static Rectangle LeftDown(int Xstart, int Xend, int Ystart, int Yend)
     {
         if (Xstart<=30)
             Xstart=30;
@@ -91,7 +91,7 @@ public class FireControl
         fire = GetBetterPosition(fire,new Line(200, 500, 300, 500),Xstart,Xend,Ystart,Yend);
         return fire;
     }
-    public Rectangle GetBetterPosition(Rectangle fire, Line line, int Xstart, int Xend, int Ystart, int Yend)
+    public static Rectangle GetBetterPosition(Rectangle fire, Line line, int Xstart, int Xend, int Ystart, int Yend)
     {
         for (int i = 0; i < 200; i++)
         {
@@ -106,7 +106,7 @@ public class FireControl
         }
         return fire;
     }
-    public Rectangle IsOnFireStation(Rectangle fire, Line line, int Xstart, int Xend, int Ystart,int Yend)
+    public static Rectangle IsOnFireStation(Rectangle fire, Line line, int Xstart, int Xend, int Ystart,int Yend)
     {
         fire.setX(490);
         fire.setY(240);
@@ -135,6 +135,7 @@ public class FireControl
     public Rectangle getFire3() {
         return fire3;
     }
+
 
     public Rectangle getAdditionalFire0() {
         return additionalFire0;

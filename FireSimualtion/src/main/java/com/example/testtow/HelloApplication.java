@@ -26,7 +26,6 @@ public class HelloApplication extends Application {
     boolean isUsed1 = true;
     boolean isUsed2 = true;
     boolean isUsed3 = true;
-
     Rectangle additionalFire0 = fireControl.getAdditionalFire0();
     Rectangle additionalFire1 = fireControl.getAdditionalFire1();
     Rectangle additionalFire2 = fireControl.getAdditionalFire2();
@@ -42,7 +41,7 @@ public class HelloApplication extends Application {
             Rectangle fire1 = fireControl.getFire1();
             Rectangle fire2 = fireControl.getFire2();
             Rectangle fire3 = fireControl.getFire3();
-
+            System.out.println("1 "+ fireControl.getFire0().getX());
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
             primaryStage.setScene(scene);
             primaryStage.show();

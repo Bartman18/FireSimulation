@@ -116,25 +116,17 @@ public class MapGenerator {
         whiteRect.setFill(Color.WHITE);
         //endregion
 
-        //region fires
-        FireControl fireControl = new FireControl();
-        /*//Rectangle fire0 = fireControl.getFire0();
-        Rectangle fire1 = fireControl.getFire1();
-        Rectangle fire2 = fireControl.getFire2();
-        Rectangle fire3 = fireControl.getFire3();
-        //endregion*/
-
         //region control room
         ControlRoom controlRoom = new ControlRoom();
       /*  Rectangle rect;
         rect = controlRoom.LeftLower();*/
         //endregion
-        FireControl firecontrol = new FireControl();
-        Rectangle fire0 = firecontrol.getFire0();
-        Rectangle fire1 =firecontrol.getFire1();
-        Rectangle fire2 =firecontrol.getFire2();
-        Rectangle fire3 = firecontrol.getFire3();
-        Rectangle additionalFire0 = firecontrol.getAdditionalFire0();
+        FireControl fireControl = new FireControl();
+        Rectangle fire0 = fireControl.getFire0();
+        Rectangle fire1 =fireControl.getFire1();
+        Rectangle fire2 =fireControl.getFire2();
+        Rectangle fire3 = fireControl.getFire3();
+        Rectangle additionalFire0 = fireControl.getAdditionalFire0();
 
         ControlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,root);
         ControlRoom.moveRectangleBasedOnFirePosition(fire1,additionalFire0,root);
@@ -146,7 +138,7 @@ public class MapGenerator {
 
         //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
-        root.getChildren().addAll(fire0, fire1, fire2, fire3);
+        //root.getChildren().addAll(fire0, fire1, fire2, fire3);
         root.getChildren().add(whiteRect);
 
         root.getChildren().addAll(generateReport, windOnTrue);
@@ -159,10 +151,5 @@ public class MapGenerator {
 
     public Group getRoot() {
         return root;
-    }
-    public void aaaa()
-    {
-        FireControl fireControl = new FireControl();
-        fireControl.getFire0().getY();
     }
 }
