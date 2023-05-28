@@ -23,7 +23,7 @@ public class ControlRoom {
     public Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
 
-        Rectangle rect = new Rectangle(470, 270, 50, 30);
+        rect = new Rectangle(470, 270, 50, 30);
 
         rect.setFill(Color.VIOLET);
 
@@ -288,10 +288,10 @@ public class ControlRoom {
 
 
         TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect);
-        ttUpback.setByX(100);
+        ttUpback.setByY(100);
 
         TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(1000), rect);
-        ttLeftBack.setByY(3400);
+        ttLeftBack.setByX(340);
         FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
         fadeOut.setToValue(0);
 

@@ -28,6 +28,7 @@ public class HelloApplication extends Application {
     boolean isUsed1 = true;
     boolean isUsed2 = true;
     boolean isUsed3 = true;
+    boolean isComingBack = true;
 
     Rectangle fire0 = fireControl.getFire0();
     Rectangle fire1 = fireControl.getFire1();
@@ -108,10 +109,9 @@ public class HelloApplication extends Application {
         fire.setWidth(fire.getWidth()-power);
     }
     public Rectangle elo(Rectangle fire){
-        if(fire.getHeight()<=0){
-
+        if(fire.getHeight()<=0 && isComingBack){
             controlRoom.lefupper(fire);
-
+            isComingBack =false;
         }
         return fire;
     }
