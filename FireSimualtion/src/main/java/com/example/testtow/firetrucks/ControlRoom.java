@@ -1,13 +1,11 @@
 package com.example.testtow.firetrucks;
 
 
+import com.example.testtow.HelloApplication;
 import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -17,26 +15,29 @@ public class ControlRoom {
 
     private float howBigIsFire;
     private boolean isFireOccupied;
-    static Rectangle rect;
+    static Rectangle rect1;
 
 
     public Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
+        rect1 = new Rectangle(470, 270, 50, 30);
 
-        rect = new Rectangle(470, 270, 50, 30);
+        rect1.setFill(Color.VIOLET);
 
-        rect.setFill(Color.VIOLET);
-
-        TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect);
+        TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect1);
         ttLeft.setByX(-340);
 
-        TranslateTransition ttUp = new TranslateTransition(Duration.millis(1000), rect);
+        TranslateTransition ttUp = new TranslateTransition(Duration.millis(1000), rect1);
         ttUp.setByY(-100);
 
 
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp);
         sequentialTransition.play();
-
+        sequentialTransition.setOnFinished(event -> {
+            Line waterLine = new Line(rect1.getX() + ttLeft.getByX(), rect1.getY() + ttUp.getByY(), fire.getX(), fire.getY());
+            waterLine.setStroke(Color.BLUE);
+            root.getChildren().add(waterLine);
+            HelloApplication.XD=true;});
         /*sequentialTransition.setOnFinished(event -> {
             Line waterLine = new Line(rect.getX() + ttLeft.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine.setStroke(Color.BLUE);
@@ -76,7 +77,7 @@ public class ControlRoom {
 
 
 
-        return rect;
+        return rect1;
     }
 
     public Rectangle RightUpper(Rectangle fire,Rectangle additionalFire,Group root) {
@@ -265,15 +266,13 @@ public class ControlRoom {
         double x = fire.getX();
         double y = fire.getY();
         ControlRoom controlRoom = new ControlRoom();
-
-
         if (x >= 300 && x < 600 && y >= 0 && y < 300) {
             Rectangle rect = controlRoom.RightUpper(fire,additionalFire,root);
             root.getChildren().add(rect);
         } else if (x >= 0 && x < 300 && y >= 0 && y < 300)
         {
-            Rectangle rect = controlRoom.LeftUpper(fire,additionalFire,root);
-            root.getChildren().add(rect);
+            rect1 = controlRoom.LeftUpper(fire,additionalFire,root);
+            root.getChildren().add(rect1);
         } else if (x >= 300 && x < 600 && y >= 300 && y < 600) {
             Rectangle rect = controlRoom.RightLower(fire,additionalFire,root);
             root.getChildren().add(rect);
@@ -287,18 +286,18 @@ public class ControlRoom {
 
 
 
-        TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect);
+        TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect1);
         ttUpback.setByY(100);
 
-        TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(1000), rect);
+        TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(1000), rect1);
         ttLeftBack.setByX(340);
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect1);
         fadeOut.setToValue(0);
 
         SequentialTransition sequentialTransition1 = new SequentialTransition(ttUpback, ttLeftBack, fadeOut);
 
         sequentialTransition1.play();
-        return rect;
+        return rect1;
     }
 
 

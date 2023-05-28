@@ -30,6 +30,7 @@ public class HelloApplication extends Application {
     boolean isUsed2 = true;
     boolean isUsed3 = true;
     boolean isComingBack = true;
+    public static boolean XD = false;
 
     Rectangle fire0 = fireControl.getFire0();
     Rectangle fire1 = fireControl.getFire1();
@@ -62,8 +63,9 @@ public class HelloApplication extends Application {
                 @Override public void handle(long currentNanoTime) {
 
 
-
-                    puttingOff(fire0 , 0.03);
+                    if (XD) {
+                        puttingOff(fire0, 0.03);
+                    }
                     elo(fire0);
 
                     if (FireControl.wind) {
