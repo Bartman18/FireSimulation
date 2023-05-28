@@ -5,6 +5,7 @@ import com.example.testtow.Fire.FireControl;
 import com.example.testtow.firetrucks.ControlRoom;
 import com.example.testtow.firetrucks.FireTruck;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -46,11 +47,14 @@ public class HelloApplication extends Application {
             mapGenerator.MapGeneration(primaryStage);
             FireTruck fireTruck1 = new FireTruck(1, 2, 2, 2, 2);
             ControlRoom controlRoom = new ControlRoom();
-            controlRoom.LeftUpper(fire0,additionalFire0,mapGenerator.root);
+            controlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,mapGenerator.root);
+            controlRoom.moveRectangleBasedOnFirePosition(fire1,additionalFire0,mapGenerator.root);
+            controlRoom.moveRectangleBasedOnFirePosition(fire2,additionalFire0,mapGenerator.root);
+            controlRoom.moveRectangleBasedOnFirePosition(fire3,additionalFire0,mapGenerator.root);
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
 
 
-            controlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,mapGenerator.root);
+
 
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -61,6 +65,7 @@ public class HelloApplication extends Application {
 
                     puttingOff(fire0 , 0.03);
                     elo(fire0);
+
                     if (FireControl.wind) {
                         windBehavior();
                     }
@@ -109,11 +114,14 @@ public class HelloApplication extends Application {
         fire.setWidth(fire.getWidth()-power);
     }
     public Rectangle elo(Rectangle fire){
+
         if(fire.getHeight()<=0 && isComingBack){
             controlRoom.lefupper(fire);
             isComingBack =false;
         }
         return fire;
     }
+
 }
+
 

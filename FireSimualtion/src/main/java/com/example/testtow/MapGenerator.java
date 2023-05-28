@@ -128,10 +128,10 @@ public class MapGenerator {
         Rectangle fire3 = fireControl.getFire3();
         Rectangle additionalFire0 = fireControl.getAdditionalFire0();
 
-        ControlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,root);
+        /*ControlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,root);
         ControlRoom.moveRectangleBasedOnFirePosition(fire1,additionalFire0,root);
         ControlRoom.moveRectangleBasedOnFirePosition(fire2,additionalFire0,root);
-        ControlRoom.moveRectangleBasedOnFirePosition(fire3,additionalFire0,root);
+        ControlRoom.moveRectangleBasedOnFirePosition(fire3,additionalFire0,root);*/
 
 
 
