@@ -23,7 +23,10 @@ import javafx.animation.AnimationTimer;
 public class MapGenerator {
 
 
-    EventHandler<ActionEvent> generateReportEvent = e -> GenerateReport.GenerateReport();
+    EventHandler<ActionEvent> generateReportEvent = e -> {
+        GenerateReport generateReport = new GenerateReport();
+        generateReport.GenerateReport(new String[0]);
+    };
     EventHandler<ActionEvent> turnWindEvent = e -> FireControl.windChange();
 
     Group root = new Group();
@@ -34,7 +37,7 @@ public class MapGenerator {
         primaryStage.setResizable(false);
 
         //region UI
-        Button generateReport = new Button("Generate losowe błędy");
+        Button generateReport = new Button("Generuj raport");
         generateReport.maxHeight(30);
         generateReport.maxWidth(100);
         generateReport.setLayoutX(650);
