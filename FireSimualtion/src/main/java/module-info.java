@@ -5,6 +5,7 @@ module com.example.testtow {
     requires itextpdf;
     requires itext.rtf;
     requires itext;
+    requires java.desktop;
 
 
 

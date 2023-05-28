@@ -11,7 +11,9 @@ public class GenerateReport {
 
     public static void GenerateReport() {
         System.out.println(System.getProperty("file.encoding"));
+
         FontFactory.register("fonts/ARIALUNI.TTF", "MyArialUnicode");
+
         String htmlContent = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +

@@ -4,11 +4,7 @@ import com.example.testtow.Fire.Fire;
 import com.example.testtow.Fire.FireControl;
 import com.example.testtow.firetrucks.ControlRoom;
 import com.example.testtow.firetrucks.FireTruck;
-import javafx.animation.FadeTransition;
-import javafx.animation.SequentialTransition;
-import javafx.animation.TranslateTransition;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -16,22 +12,26 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
-import javafx.util.Duration;
 
 import java.util.Random;
 
 public class HelloApplication extends Application {
 
     //region zmienna
-
+    FireControl fireControl = new FireControl();
     static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
     Random generator = new Random();
-    Rectangle[] additionalFire = new Rectangle[50];
-    int j;
-    boolean czybylo = false;
+    boolean isUsed0 = true;
+    boolean isUsed1 = true;
+    boolean isUsed2 = true;
+    boolean isUsed3 = true;
+
+    Rectangle additionalFire0 = fireControl.getAdditionalFire0();
+    Rectangle additionalFire1 = fireControl.getAdditionalFire1();
+    Rectangle additionalFire2 = fireControl.getAdditionalFire2();
+    Rectangle additionalFire3 = fireControl.getAdditionalFire3();
     //endregion
-    FireControl fireControl = new FireControl();
         @Override
         public void start(Stage primaryStage) throws Exception {
             Rectangle rect = new Rectangle(600, 600);
@@ -42,30 +42,17 @@ public class HelloApplication extends Application {
             Rectangle fire1 = fireControl.getFire1();
             Rectangle fire2 = fireControl.getFire2();
             Rectangle fire3 = fireControl.getFire3();
+
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
             primaryStage.setScene(scene);
             primaryStage.show();
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
 
-                    for (int i = 0; i < 1; i++) {
-                        double random = generator.nextInt(50);
-                        //fire0.setWidth(fire0.getWidth()-1);
-                        //fire0.setHeight(fire0.getHeight()-1);
-                        if (random == 1 && !czybylo)
-                        {
-                            additionalFire[j] = fireControl.getAdditionalFire0();
-                            mapGenerator.root.getChildren().add(additionalFire[j]);
-                            j++;
-                            czybylo = true;
-                            //mapGenerator.root.getChildren().remove(fireControl.getFire0());
-                        }
-
+                    //puttingOff(fire0 , 0.03);
+                    if (FireControl.wind) {
+                        windBehavior();
                     }
-
-
-
-
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
@@ -74,13 +61,40 @@ public class HelloApplication extends Application {
                 }
             }.start();
         }
-
-
-
         public static void main(String[] args) {launch(args);}
 
 
     public static Text getTestText() {
         return testText;
+    }
+
+    public void windBehavior()
+    {
+        double random = generator.nextInt(4000);
+        if (random == 1 && isUsed0)
+        {
+            mapGenerator.root.getChildren().add(additionalFire0);
+            isUsed0 = false;
+        }
+        if (random == 2 && isUsed1)
+        {
+            mapGenerator.root.getChildren().add(additionalFire1);
+            isUsed1 = false;
+        }
+        if (random == 3 && isUsed2)
+        {
+            mapGenerator.root.getChildren().add(additionalFire2);
+            isUsed2 = false;
+        }
+        if (random == 4 && isUsed3)
+        {
+            mapGenerator.root.getChildren().add(additionalFire3);
+            isUsed3 = false;
+        }
+    }
+    public void puttingOff(Rectangle fire, double power)
+    {
+        fire.setHeight(fire.getHeight()-power);
+        fire.setWidth(fire.getWidth()-power);
     }
 }
