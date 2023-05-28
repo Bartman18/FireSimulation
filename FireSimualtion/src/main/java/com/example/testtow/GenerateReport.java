@@ -11,6 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 public class GenerateReport {
     public static void GenerateReport(String[] args) {
         Document document = new Document();
@@ -27,7 +31,7 @@ public class GenerateReport {
             BaseFont bf = BaseFont.createFont("arialuni.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             com.itextpdf.text.Font font = new com.itextpdf.text.Font(bf, 12);
 
-            document.add(new Paragraph("Witaj, świecie! To jest PDF generowany przy użyciu Maven. Zażółć gęślą jaźń", font));
+            document.add(new Paragraph("TESTWitaj, świecie! To jest PDF generowany przy użyciu Maven. Zażółć gęślą jaźń", font));
 
             document.close();
         } catch (DocumentException | FileNotFoundException e) {
@@ -35,5 +39,13 @@ public class GenerateReport {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        File pdfFile = new File("raport_z_symulacji.pdf");
+
+        try {
+            Desktop.getDesktop().open(pdfFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
+    }
