@@ -28,6 +28,11 @@ public class HelloApplication extends Application {
     boolean isUsed1 = true;
     boolean isUsed2 = true;
     boolean isUsed3 = true;
+
+    Rectangle fire0 = fireControl.getFire0();
+    Rectangle fire1 = fireControl.getFire1();
+    Rectangle fire2 = fireControl.getFire2();
+    Rectangle fire3 = fireControl.getFire3();
     Rectangle additionalFire0 = fireControl.getAdditionalFire0();
     Rectangle additionalFire1 = fireControl.getAdditionalFire1();
     Rectangle additionalFire2 = fireControl.getAdditionalFire2();
@@ -39,10 +44,8 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(mapGenerator.getRoot(),800, 600, Color.GREEN);
             mapGenerator.MapGeneration(primaryStage);
             FireTruck fireTruck1 = new FireTruck(1, 2, 2, 2, 2);
-            Rectangle fire0 = fireControl.getFire0();
-            Rectangle fire1 = fireControl.getFire1();
-            Rectangle fire2 = fireControl.getFire2();
-            Rectangle fire3 = fireControl.getFire3();
+            ControlRoom controlRoom = new ControlRoom();
+            controlRoom.LeftUpper(fire0,additionalFire0,mapGenerator.root);
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
 
 
@@ -52,6 +55,8 @@ public class HelloApplication extends Application {
             primaryStage.show();
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
+
+
 
                     puttingOff(fire0 , 0.03);
                     elo(fire0);
@@ -76,22 +81,22 @@ public class HelloApplication extends Application {
     public void windBehavior()
     {
         double random = generator.nextInt(4000);
-        if (random == 1 && isUsed0)
+        if (random == 1 && fire0.getHeight()>0 && isUsed0)
         {
             mapGenerator.root.getChildren().add(additionalFire0);
             isUsed0 = false;
         }
-        if (random == 2 && isUsed1)
+        if (random == 2 && fire1.getHeight()>0 && isUsed1)
         {
             mapGenerator.root.getChildren().add(additionalFire1);
             isUsed1 = false;
         }
-        if (random == 3 && isUsed2)
+        if (random == 3 && fire2.getHeight()>0 && isUsed2)
         {
             mapGenerator.root.getChildren().add(additionalFire2);
             isUsed2 = false;
         }
-        if (random == 4 && isUsed3)
+        if (random == 4 && fire3.getHeight()>0 && isUsed3)
         {
             mapGenerator.root.getChildren().add(additionalFire3);
             isUsed3 = false;

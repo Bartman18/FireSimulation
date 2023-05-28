@@ -22,6 +22,7 @@ public class ControlRoom {
 
     public Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
+
         Rectangle rect = new Rectangle(470, 270, 50, 30);
 
         rect.setFill(Color.VIOLET);
