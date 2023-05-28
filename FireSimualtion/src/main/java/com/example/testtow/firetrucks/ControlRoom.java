@@ -17,12 +17,13 @@ public class ControlRoom {
 
     private float howBigIsFire;
     private boolean isFireOccupied;
+    static Rectangle rect;
 
 
     public Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
-
         Rectangle rect = new Rectangle(470, 270, 50, 30);
+
         rect.setFill(Color.VIOLET);
 
         TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect);
@@ -35,7 +36,7 @@ public class ControlRoom {
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp);
         sequentialTransition.play();
 
-        sequentialTransition.setOnFinished(event -> {
+        /*sequentialTransition.setOnFinished(event -> {
             Line waterLine = new Line(rect.getX() + ttLeft.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine.setStroke(Color.BLUE);
             root.getChildren().add(waterLine);
@@ -54,15 +55,15 @@ public class ControlRoom {
                 root.getChildren().remove(waterLine);
             }
         });
+*/
 
 
-
-        if(fire.getHeight()<=0) {
+       /* if(fire.getHeight()<=0) {
             TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect);
             ttLeft.setByX(100);
 
             TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(1000), rect);
-            ttUp.setByY(3400);
+            ttUp.setByY(340);
             FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
             fadeOut.setToValue(0);
 
@@ -70,7 +71,7 @@ public class ControlRoom {
 
             sequentialTransition1.play();
         }
-
+*/
 
 
 
@@ -281,6 +282,28 @@ public class ControlRoom {
         }
 
     }
+    public Rectangle lefupper(Rectangle fire) {
+
+
+
+        TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect);
+        ttUpback.setByX(100);
+
+        TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(1000), rect);
+        ttLeftBack.setByY(3400);
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
+        fadeOut.setToValue(0);
+
+        SequentialTransition sequentialTransition1 = new SequentialTransition(ttUpback, ttLeftBack, fadeOut);
+
+        sequentialTransition1.play();
+        return rect;
+    }
+
+
+
 
 }
+
+
 

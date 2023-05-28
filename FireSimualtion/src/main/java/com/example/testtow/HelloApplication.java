@@ -18,6 +18,8 @@ import java.util.Random;
 public class HelloApplication extends Application {
 
     //region zmienna
+    ControlRoom controlRoom = new ControlRoom();
+
     FireControl fireControl = new FireControl();
     static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
@@ -42,12 +44,17 @@ public class HelloApplication extends Application {
             Rectangle fire2 = fireControl.getFire2();
             Rectangle fire3 = fireControl.getFire3();
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
+
+
+            controlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,mapGenerator.root);
+
             primaryStage.setScene(scene);
             primaryStage.show();
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
 
-                    //puttingOff(fire0 , 0.03);
+                    puttingOff(fire0 , 0.03);
+                    elo(fire0);
                     if (FireControl.wind) {
                         windBehavior();
                     }
@@ -95,4 +102,13 @@ public class HelloApplication extends Application {
         fire.setHeight(fire.getHeight()-power);
         fire.setWidth(fire.getWidth()-power);
     }
+    public Rectangle elo(Rectangle fire){
+        if(fire.getHeight()<=0){
+
+            controlRoom.lefupper(fire);
+
+        }
+        return fire;
+    }
 }
+
