@@ -4,7 +4,11 @@ import com.example.testtow.Fire.Fire;
 import com.example.testtow.Fire.FireControl;
 import com.example.testtow.firetrucks.ControlRoom;
 import com.example.testtow.firetrucks.FireTruck;
+import javafx.animation.FadeTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -12,12 +16,14 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
+import javafx.util.Duration;
 
 import java.util.Random;
 
 public class HelloApplication extends Application {
 
     //region zmienna
+
     static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
     Random generator = new Random();
@@ -54,16 +60,23 @@ public class HelloApplication extends Application {
                             czybylo = true;
                             //mapGenerator.root.getChildren().remove(fireControl.getFire0());
                         }
+
                     }
 
+
+
+
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(10);
                     } catch (InterruptedException e) {
                         // Do nothing
                     }
                 }
             }.start();
         }
+
+
+
         public static void main(String[] args) {launch(args);}
 
 

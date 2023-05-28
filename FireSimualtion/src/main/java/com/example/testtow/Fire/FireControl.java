@@ -1,5 +1,7 @@
 package com.example.testtow.Fire;
 
+import com.example.testtow.firetrucks.ControlRoom;
+import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -130,4 +132,7 @@ public class FireControl
     public static boolean isWind() {
         return wind;
     }
+
+
 }
+
