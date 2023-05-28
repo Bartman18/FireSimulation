@@ -39,8 +39,9 @@ public class ControlRoom {
             Line waterLine = new Line(rect.getX() + ttLeft.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine.setStroke(Color.BLUE);
             root.getChildren().add(waterLine);
+
             if(fire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
+                waterLine.setEndX(300);
             }
         });
 
@@ -70,10 +71,6 @@ public class ControlRoom {
 
             sequentialTransition1.play();
         }
-
-
-
-
         return rect;
     }
 
