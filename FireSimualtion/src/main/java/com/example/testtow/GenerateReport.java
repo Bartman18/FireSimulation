@@ -16,6 +16,9 @@ public class GenerateReport {
         Document document = new Document();
         FireControl fireControl = new FireControl();
 
+        System.out.println( fireControl.getAdditionalFire0().getHeight());
+        fireControl.getAdditionalFire0().getHeight();
+
         try {
             PdfWriter.getInstance(document, new FileOutputStream("raport_z_symulacji.pdf"));
             document.open();
