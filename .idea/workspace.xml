@@ -103,15 +103,14 @@
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__oro_oro_2_0_8.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/FireSimualtion/testtow.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/GenerateReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/GenerateReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/firetrucks/ControlRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/firetrucks/ControlRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/HelloApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/MapGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/MapGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/testtow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/testtow.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/ARIALUNI.TTF" beforeDir="false" afterPath="$PROJECT_DIR$/arialuni.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/times new roman.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/raport.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,14 +158,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Piotr/Desktop/Nowy folder/POfireman/FireSimulation&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Piotr/Desktop/Nowy folder/POfireman/FireSimulation",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Piotr\Desktop\Nowy folder\POfireman\FireSimulation" />
@@ -287,10 +288,7 @@
     <MESSAGE value="Maciokwate" />
     <MESSAGE value="Some improvemnts and big wall" />
     <MESSAGE value="big wall" />
-    <MESSAGE value="dziala" />
-    <MESSAGE value="JAkis push bo nie mam sily" />
-    <MESSAGE value="ognie gotowe" />
-    <option name="LAST_COMMIT_MESSAGE" value="ognie gotowe" />
+    <option name="LAST_COMMIT_MESSAGE" value="big wall" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
