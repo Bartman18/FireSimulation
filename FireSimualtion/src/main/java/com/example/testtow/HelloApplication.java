@@ -41,7 +41,6 @@ public class HelloApplication extends Application {
             Rectangle fire1 = fireControl.getFire1();
             Rectangle fire2 = fireControl.getFire2();
             Rectangle fire3 = fireControl.getFire3();
-            System.out.println("1 "+ fireControl.getFire0().getX());
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
             primaryStage.setScene(scene);
             primaryStage.show();
