@@ -100,7 +100,7 @@ public class ControlRoom {
             waterLine.setStroke(Color.BLUE);
             root.getChildren().add(waterLine);
             if(fire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
+                waterLine.setEndX(300);
             }
         });
 
