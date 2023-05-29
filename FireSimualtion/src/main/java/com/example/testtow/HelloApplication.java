@@ -123,6 +123,18 @@ public class HelloApplication extends Application {
         }
         return fire;
     }
+    public boolean getIsUsed0() {
+        return isUsed0;
+    }
+    public boolean getIsUsed1() {
+        return isUsed1;
+    }
+    public boolean getIsUsed2() {
+        return isUsed2;
+    }
+    public boolean getIsUsed3() {
+        return isUsed3;
+    }
 
 }
 

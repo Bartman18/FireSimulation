@@ -2,6 +2,7 @@ package com.example.testtow;
 
 import com.example.testtow.Fire.FireControl;
 import com.example.testtow.firetrucks.ControlRoom;
+import com.example.testtow.GenerateReport;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -27,6 +28,8 @@ public class MapGenerator {
         GenerateReport generateReport = new GenerateReport();
         generateReport.GenerateReport(new String[0]);
     };
+
+
     EventHandler<ActionEvent> turnWindEvent = e -> FireControl.windChange();
 
     Group root = new Group();
