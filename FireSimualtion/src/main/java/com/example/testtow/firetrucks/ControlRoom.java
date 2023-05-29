@@ -38,6 +38,18 @@ public class ControlRoom {
     private static double intitalX4;
     private static double inititalY4;
 
+    static boolean additionalBoolean1 = true;
+    static boolean additionalBoolean2 = true;
+    static boolean additionalBoolean3 = true;
+    static boolean additionalBoolean4 = true;
+
+
+
+
+
+
+
+
 
 
     public static Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
@@ -438,39 +450,52 @@ public class ControlRoom {
     }
 
     public static Line LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
-        waterLine5 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
-        if (additionalFire.getHeight() > 0) {
+
+        if (additionalFire.getHeight() > 0 && additionalBoolean1) {
+            waterLine5 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
             waterLine5.setStroke(Color.BLUE);
             root.getChildren().add(waterLine5);
+            additionalBoolean1 = false;
         }
+
         return waterLine5;
     }
 
     public static Line LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine6 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
-        if(additionalFire.getHeight()>0) {
+
+        if(additionalFire.getHeight()>0 && additionalBoolean2) {
+            waterLine6 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
             waterLine6.setStroke(Color.BLUE);
             root.getChildren().add(waterLine6);
+            additionalBoolean2 = false;
         }
+
         return waterLine6;
     }
 
     public static Line RightUpperAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine7 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
-        if(additionalFire.getHeight()>0) {
+
+        if(additionalFire.getHeight()>0 && additionalBoolean3) {
+            waterLine7 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
             waterLine7.setStroke(Color.BLUE);
             root.getChildren().add(waterLine7);
+            additionalBoolean3 = false;
         }
+
 
         return waterLine7;
     }
 
     public static Line RightLowerAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine8= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
-        if(additionalFire.getHeight()>0) {
+
+        if(additionalFire.getHeight()>0 && additionalBoolean4) {
+            waterLine8= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
             waterLine8.setStroke(Color.BLUE);
             root.getChildren().add(waterLine8);
+            additionalBoolean4 = false;
+
         }
+
         return waterLine8;
     }
 

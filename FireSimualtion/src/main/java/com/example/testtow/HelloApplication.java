@@ -119,8 +119,9 @@ public class HelloApplication extends Application {
 
                     }
 
-                    if(additionalFire0.getHeight()<=0 ){
+                    if(additionalFire0.getHeight()<=0  ){
                         controlRoom.getLine6Remove(mapGenerator.root);
+
                     }
 
                     if(additionalFire1.getHeight()<=0 ){
@@ -134,7 +135,6 @@ public class HelloApplication extends Application {
                     if(additionalFire3.getHeight()<=0 ){
                         controlRoom.getLine8Remove(mapGenerator.root);
                     }
-
 
                     if(fire0.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0)
                         //if((additionalFire0.getHeight()<=0||isUsed0)&&(additionalFire1.getHeight()<=0||isUsed1)&&(additionalFire2.getHeight()<=0||isUsed2)&&(additionalFire3.getHeight()<=0||isUsed3)){
