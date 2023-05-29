@@ -59,8 +59,24 @@ public class GenerateReport {
         booleanadditional[1] = helloApp.getIsUsed1();
         booleanadditional[2] = helloApp.getIsUsed2();
         booleanadditional[3] = helloApp.getIsUsed3();
-
-        System.out.println(fireControl.getAdditionalFire0().getX());
+        double waterFire[] = new double[4];
+        waterFire[0] = surface[0]*1.5;
+        waterFire[1] = surface[1]*1.5;
+        waterFire[2] = surface[2]*1.5;
+        waterFire[3] = surface[3]*1.5;
+        double waterFireAd[] = new double[4];
+        waterFireAd[0] = surfacead[0]*1.5;
+        waterFireAd[1] = surfacead[1]*1.5;
+        waterFireAd[2] = surfacead[2]*1.5;
+        waterFireAd[3] = surfacead[3]*1.5;
+        double waterFireAll = 0;
+        waterFireAll = waterFire[0] + waterFire[1] + waterFire[2] + waterFire[3];
+        for (int i = 0; i < 4; i++) {
+            if (!booleanadditional[i]) { // Sprawdzenie parametru
+                waterFireAll += waterFireAd[i];
+            }
+        }
+                System.out.println(fireControl.getAdditionalFire0().getX());
         double maxValueAdFire = 0;
         for (int i = 0; i < 4; i++) {
             if (!booleanadditional[i]) { // Sprawdzenie parametru
@@ -108,6 +124,11 @@ public class GenerateReport {
             }
         }
         String CountFireStr = Double.toString(CountFire);
+        double waterFireMax = maxValueFireAll*1.5;
+        double waterFireMin = minValueFireAll*1.5;
+        String waterFireMaxStr = Double.toString(waterFireMax);
+        String waterFireMinStr = Double.toString(waterFireMin);
+        String waterFireAllStr = Double.toString(waterFireAll);
 
         try {
             PdfWriter.getInstance(document, new FileOutputStream("raport_z_symulacji.pdf"));
@@ -149,7 +170,7 @@ public class GenerateReport {
 
             // Tekst - Zawartość raportu
             Paragraph contentParagraph3 = new Paragraph("Największa zużyta ilość wody: ", font);
-            Phrase valuePhrase3 = new Phrase("będzie litrów", boldFont);
+            Phrase valuePhrase3 = new Phrase(waterFireMaxStr, boldFont);
             contentParagraph3.add(valuePhrase3);
             contentParagraph3.setIndentationLeft(40);
             contentParagraph3.setSpacingAfter(25);
@@ -157,7 +178,7 @@ public class GenerateReport {
 
             // Tekst - Zawartość raportu
             Paragraph contentParagraph4 = new Paragraph("Najmniejsza zużyta ilość wody: ", font);
-            Phrase valuePhrase4 = new Phrase("będzie litrów", boldFont);
+            Phrase valuePhrase4 = new Phrase(waterFireMinStr, boldFont);
             contentParagraph4.add(valuePhrase4);
             contentParagraph4.setIndentationLeft(40);
             contentParagraph4.setSpacingAfter(25);
@@ -165,7 +186,7 @@ public class GenerateReport {
 
             // Tekst - Zawartość raportu
             Paragraph contentParagraph5 = new Paragraph("Sumaryczna ilość zużytej wody: ", font);
-            Phrase valuePhrase5 = new Phrase("będzie litrów", boldFont);
+            Phrase valuePhrase5 = new Phrase(waterFireAllStr, boldFont);
             contentParagraph5.add(valuePhrase5);
             contentParagraph5.setIndentationLeft(40);
             contentParagraph5.setSpacingAfter(25);
