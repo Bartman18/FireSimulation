@@ -134,7 +134,6 @@ public class MapGenerator {
         root.getChildren().add(whiteRect);
         root.getChildren().addAll(generateReport, windOnTrue);
         root.getChildren().add(fireControl.getWindText());
-        root.getChildren().add(HelloApplication.getTestText());
         //endregion
     }
 

@@ -23,6 +23,10 @@ public class ControlRoom {
     static Line waterLine2;
     static Line waterLine3;
     static Line waterLine4;
+    static Line waterLine5;
+    static Line waterLine6;
+    static Line waterLine7;
+    static Line waterLine8;
 
     public static double intitalX1;
     public static double initialY1 ;
@@ -33,6 +37,18 @@ public class ControlRoom {
     private static double inititalY3;
     private static double intitalX4;
     private static double inititalY4;
+
+    static boolean additionalBoolean1 = true;
+    static boolean additionalBoolean2 = true;
+    static boolean additionalBoolean3 = true;
+    static boolean additionalBoolean4 = true;
+
+
+
+
+
+
+
 
 
 
@@ -415,41 +431,72 @@ public class ControlRoom {
         return waterLine4;
     }
 
+
+    public Line getLine5Remove(Group root){
+        root.getChildren().remove(waterLine5);
+        return waterLine5;
+    }
+    public Line getLine6Remove(Group root){
+        root.getChildren().remove(waterLine6);
+        return waterLine6;
+    }
+    public Line getLine7Remove(Group root){
+        root.getChildren().remove(waterLine7);
+        return waterLine7;
+    }
+    public Line getLine8Remove(Group root){
+        root.getChildren().remove(waterLine8);
+        return waterLine8;
+    }
+
     public static Line LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
-        waterLine4 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
-        if (additionalFire.getHeight() > 0) {
-            waterLine4.setStroke(Color.BLUE);
-            root.getChildren().add(waterLine4);
+
+        if (additionalFire.getHeight() > 0 && additionalBoolean1) {
+            waterLine5 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
+            waterLine5.setStroke(Color.BLUE);
+            root.getChildren().add(waterLine5);
+            additionalBoolean1 = false;
         }
-        return waterLine4;
+
+        return waterLine5;
     }
 
     public static Line LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine1 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
-        if(additionalFire.getHeight()>0) {
-            waterLine1.setStroke(Color.BLUE);
-            root.getChildren().add(waterLine1);
+
+        if(additionalFire.getHeight()>0 && additionalBoolean2) {
+            waterLine6 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
+            waterLine6.setStroke(Color.BLUE);
+            root.getChildren().add(waterLine6);
+            additionalBoolean2 = false;
         }
-        return waterLine1;
+
+        return waterLine6;
     }
 
     public static Line RightUpperAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine2 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
-        if(additionalFire.getHeight()>0) {
-            waterLine2.setStroke(Color.BLUE);
-            root.getChildren().add(waterLine2);
+
+        if(additionalFire.getHeight()>0 && additionalBoolean3) {
+            waterLine7 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
+            waterLine7.setStroke(Color.BLUE);
+            root.getChildren().add(waterLine7);
+            additionalBoolean3 = false;
         }
 
-        return waterLine2;
+
+        return waterLine7;
     }
 
     public static Line RightLowerAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine3= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
-        if(additionalFire.getHeight()>0) {
-            waterLine3.setStroke(Color.BLUE);
-            root.getChildren().add(waterLine3);
+
+        if(additionalFire.getHeight()>0 && additionalBoolean4) {
+            waterLine8= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
+            waterLine8.setStroke(Color.BLUE);
+            root.getChildren().add(waterLine8);
+            additionalBoolean4 = false;
+
         }
-        return waterLine3;
+
+        return waterLine8;
     }
 
 
