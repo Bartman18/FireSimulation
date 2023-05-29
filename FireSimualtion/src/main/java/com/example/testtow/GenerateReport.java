@@ -155,6 +155,8 @@ public class GenerateReport {
             Paragraph contentParagraph1 = new Paragraph("Największy pożar (powierzchnia): ", font);
             Phrase valuePhrase1 = new Phrase(maxValueFireAllStr, boldFont);
             contentParagraph1.add(valuePhrase1);
+            Phrase valuePhraseunit1 = new Phrase(" metrów kwadratowych", boldFont);
+            contentParagraph1.add(valuePhraseunit1);
             contentParagraph1.setSpacingBefore(20); // Ustawienie odstępu po tekście
             contentParagraph1.setIndentationLeft(40);
             contentParagraph1.setSpacingAfter(25);
@@ -164,6 +166,8 @@ public class GenerateReport {
             Paragraph contentParagraph2 = new Paragraph("Najmniejszy pożar (powierzchnia): ", font);
             Phrase valuePhrase2 = new Phrase(minValueFireAllStr, boldFont);
             contentParagraph2.add(valuePhrase2);
+            Phrase valuePhraseunit2 = new Phrase(" metrów kwadratowych", boldFont);
+            contentParagraph2.add(valuePhraseunit2);
             contentParagraph2.setIndentationLeft(40);
             contentParagraph2.setSpacingAfter(25);
             document.add(contentParagraph2);
@@ -172,6 +176,8 @@ public class GenerateReport {
             Paragraph contentParagraph3 = new Paragraph("Największa zużyta ilość wody: ", font);
             Phrase valuePhrase3 = new Phrase(waterFireMaxStr, boldFont);
             contentParagraph3.add(valuePhrase3);
+            Phrase valuePhraseunit3 = new Phrase(" litrów", boldFont);
+            contentParagraph3.add(valuePhraseunit3);
             contentParagraph3.setIndentationLeft(40);
             contentParagraph3.setSpacingAfter(25);
             document.add(contentParagraph3);
@@ -180,6 +186,8 @@ public class GenerateReport {
             Paragraph contentParagraph4 = new Paragraph("Najmniejsza zużyta ilość wody: ", font);
             Phrase valuePhrase4 = new Phrase(waterFireMinStr, boldFont);
             contentParagraph4.add(valuePhrase4);
+            Phrase valuePhraseunit4 = new Phrase(" litrów", boldFont);
+            contentParagraph4.add(valuePhraseunit4);
             contentParagraph4.setIndentationLeft(40);
             contentParagraph4.setSpacingAfter(25);
             document.add(contentParagraph4);
@@ -188,6 +196,8 @@ public class GenerateReport {
             Paragraph contentParagraph5 = new Paragraph("Sumaryczna ilość zużytej wody: ", font);
             Phrase valuePhrase5 = new Phrase(waterFireAllStr, boldFont);
             contentParagraph5.add(valuePhrase5);
+            Phrase valuePhraseunit5 = new Phrase(" litrów", boldFont);
+            contentParagraph5.add(valuePhraseunit5);
             contentParagraph5.setIndentationLeft(40);
             contentParagraph5.setSpacingAfter(25);
             document.add(contentParagraph5);
