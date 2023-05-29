@@ -51,6 +51,7 @@ public class GenerateReport {
     }
 
     public static void GenerateReport(String[] args) {
+        FireControl fireControl = new FireControl();
         Document document = new Document();
         HelloApplication helloApp = new HelloApplication();
         boolean booleanadditional[] = new boolean[4];
@@ -59,6 +60,7 @@ public class GenerateReport {
         booleanadditional[2] = helloApp.getIsUsed2();
         booleanadditional[3] = helloApp.getIsUsed3();
 
+        System.out.println(fireControl.getAdditionalFire0().getX());
         double maxValueAdFire = 0;
         for (int i = 0; i < 4; i++) {
             if (!booleanadditional[i]) { // Sprawdzenie parametru

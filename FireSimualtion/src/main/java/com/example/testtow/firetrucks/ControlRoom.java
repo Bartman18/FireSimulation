@@ -24,19 +24,19 @@ public class ControlRoom {
     static Line waterLine3;
     static Line waterLine4;
 
-    public double intitalX1;
-    public double initialY1 ;
+    public static double intitalX1;
+    public static double initialY1 ;
 
-    private double intitalX2;
-    private double inititalY2;
-    private double intitalX3;
-    private double inititalY3;
-    private double intitalX4;
-    private double inititalY4;
+    private static double intitalX2;
+    private static double inititalY2;
+    private static double intitalX3;
+    private static double inititalY3;
+    private static double intitalX4;
+    private static double inititalY4;
 
 
 
-    public Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
         rect1 = new Rectangle(470, 270, 50, 30);
 
@@ -56,7 +56,7 @@ public class ControlRoom {
             intitalX1 = rect1.getX() + ttLeft.getByX();
             initialY1 = rect1.getY() + ttUp.getByY();
 
-            waterLine1 = new Line(rect1.getX() + ttLeft.getByX(), rect1.getY() + ttUp.getByY(), fire.getX(), fire.getY());
+            waterLine1 = new Line(intitalX1, initialY1, fire.getX(), fire.getY());
             waterLine1.setStroke(Color.BLUE);
             root.getChildren().add(waterLine1);
             HelloApplication.schouldPutOff0=true;});
@@ -102,7 +102,7 @@ public class ControlRoom {
         return rect1;
     }
 
-    public Rectangle RightUpper(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle RightUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
         rect2 = new Rectangle(470, 270, 50, 30);
 
@@ -167,7 +167,7 @@ public class ControlRoom {
 
     }
 
-    public Rectangle RightLower(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle RightLower(Rectangle fire,Rectangle additionalFire,Group root) {
 
 
         rect3 = new Rectangle(470, 270, 50, 30);
@@ -234,7 +234,7 @@ public class ControlRoom {
 
     }
 
-    public Rectangle LeftLower(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle LeftLower(Rectangle fire,Rectangle additionalFire,Group root) {
         rect4 = new Rectangle(470, 270, 50, 30);
         rect4.setFill(Color.VIOLET);
 
@@ -415,7 +415,7 @@ public class ControlRoom {
         return waterLine4;
     }
 
-    public Line LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
+    public static Line LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
         waterLine4 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
         if (additionalFire.getHeight() > 0) {
             waterLine4.setStroke(Color.BLUE);
@@ -424,7 +424,7 @@ public class ControlRoom {
         return waterLine4;
     }
 
-    public Line LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
+    public static Line LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
         waterLine1 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
         if(additionalFire.getHeight()>0) {
             waterLine1.setStroke(Color.BLUE);
@@ -433,7 +433,7 @@ public class ControlRoom {
         return waterLine1;
     }
 
-    public Line RightUpperAdditionalFire(Rectangle additionalFire, Group root){
+    public static Line RightUpperAdditionalFire(Rectangle additionalFire, Group root){
         waterLine2 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
         if(additionalFire.getHeight()>0) {
             waterLine2.setStroke(Color.BLUE);
@@ -443,7 +443,7 @@ public class ControlRoom {
         return waterLine2;
     }
 
-    public Line RightLowerAdditionalFire(Rectangle additionalFire, Group root){
+    public static Line RightLowerAdditionalFire(Rectangle additionalFire, Group root){
         waterLine3= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
         if(additionalFire.getHeight()>0) {
             waterLine3.setStroke(Color.BLUE);

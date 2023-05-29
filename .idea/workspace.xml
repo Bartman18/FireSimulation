@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/GenerateReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/GenerateReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/firetrucks/ControlRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/firetrucks/ControlRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/HelloApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/raport_z_symulacji.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/raport_z_symulacji.pdf" afterDir="false" />
     </list>
@@ -211,7 +212,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FireSimulation$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1684775302161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/FireSimulation$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1685373100068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.testtow.*</FILTER>
     </SUITE>
   </component>

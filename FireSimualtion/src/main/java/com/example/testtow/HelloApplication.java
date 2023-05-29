@@ -60,9 +60,6 @@ public class HelloApplication extends Application {
             controlRoom.moveRectangleBasedOnFirePosition(fire3,additionalFire0,mapGenerator.root);
             mapGenerator.root.getChildren().addAll(fire0, fire1, fire2, fire3);
 
-
-
-
             primaryStage.setScene(scene);
             primaryStage.show();
             new AnimationTimer() {
@@ -193,6 +190,9 @@ public class HelloApplication extends Application {
         }
         return  fire;
     }
+
+
+
 
     public boolean getIsUsed0() {
         return isUsed0;
