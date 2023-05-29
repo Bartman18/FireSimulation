@@ -30,7 +30,13 @@ public class HelloApplication extends Application {
     boolean isUsed2 = true;
     boolean isUsed3 = true;
     boolean isComingBack = true;
+    boolean isComingBack1 = true;
+    boolean isComingBack2 = true;
+    boolean isComingBack3 = true;
     public static boolean XD = false;
+    public static boolean XD1 = false;
+    public static boolean XD2 = false;
+    public static boolean XD3 = false;
 
     Rectangle fire0 = fireControl.getFire0();
     Rectangle fire1 = fireControl.getFire1();
@@ -62,15 +68,50 @@ public class HelloApplication extends Application {
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
 
-
                     if (XD) {
                         puttingOff(fire0, 0.03);
+
                     }
-                    elo(fire0);
+                    if(XD1){
+                        puttingOff(fire1, 0.03);
+                    }
+                   if(XD2){
+                        puttingOff(fire3, 0.03);
+                    }
+                    if(XD3){
+                        puttingOff(fire2, 0.03);
+                    }
+
+
+                    if(fire0.getHeight()<=0){
+                        controlRoom.getLine1Remove(mapGenerator.root);
+
+                    }
+                    if(fire1.getHeight()<=0){
+                        controlRoom.getLine2Remove(mapGenerator.root);
+
+                    }
+                    if(fire2.getHeight()<=0){
+                        controlRoom.getLine4Remove(mapGenerator.root);
+
+                    }
+                    if(fire3.getHeight()<=0){
+                        controlRoom.getLine3Remove(mapGenerator.root);
+
+                    }
+
+                    LeftU(fire0);
+                    RightU(fire1);
+                    LeftL(fire2);
+                    RightL(fire3);
+
+
+
 
                     if (FireControl.wind) {
                         windBehavior();
                     }
+
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
@@ -115,14 +156,40 @@ public class HelloApplication extends Application {
         fire.setHeight(fire.getHeight()-power);
         fire.setWidth(fire.getWidth()-power);
     }
-    public Rectangle elo(Rectangle fire){
+    public Rectangle LeftU(Rectangle fire){
 
         if(fire.getHeight()<=0 && isComingBack){
-            controlRoom.lefupper(fire);
+            controlRoom.LeftUpperBack(fire);
             isComingBack =false;
         }
+
         return fire;
     }
+    public Rectangle RightU(Rectangle fire){
+            if(fire.getHeight()<=0 && isComingBack2){
+                controlRoom.RightUpperBack(fire);
+                isComingBack2 = false;
+            }
+            return  fire;
+    }
+    public Rectangle RightL(Rectangle fire){
+        if(fire.getHeight()<=0 && isComingBack3  ){
+            controlRoom.RightLowerBack(fire);
+            isComingBack3 = false;
+        }
+        return  fire;
+    }
+    public Rectangle LeftL(Rectangle fire){
+        if(fire.getHeight()<=0 && isComingBack1){
+            controlRoom.LeftLowerBack(fire);
+            isComingBack1 = false;
+        }
+        return  fire;
+    }
+
+
+
+
     public boolean getIsUsed0() {
         return isUsed0;
     }
