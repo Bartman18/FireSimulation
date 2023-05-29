@@ -22,7 +22,6 @@ public class HelloApplication extends Application {
     ControlRoom controlRoom = new ControlRoom();
 
     FireControl fireControl = new FireControl();
-    static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
     Random generator = new Random();
     static boolean isUsed0 = true;
@@ -49,10 +48,8 @@ public class HelloApplication extends Application {
     //endregion
         @Override
         public void start(Stage primaryStage) throws Exception {
-            Rectangle rect = new Rectangle(600, 600);
             Scene scene = new Scene(mapGenerator.getRoot(),800, 600, Color.GREEN);
             mapGenerator.MapGeneration(primaryStage);
-            FireTruck fireTruck1 = new FireTruck(1, 2, 2, 2, 2);
             ControlRoom controlRoom = new ControlRoom();
             controlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,mapGenerator.root);
             controlRoom.moveRectangleBasedOnFirePosition(fire1,additionalFire0,mapGenerator.root);
@@ -101,41 +98,32 @@ public class HelloApplication extends Application {
                     //remove water-fire
                     if(fire0.getHeight()<=0){
                         controlRoom.getLine1Remove(mapGenerator.root);
-
-
                     }
                     if(fire1.getHeight()<=0){
                         controlRoom.getLine2Remove(mapGenerator.root);
-
                     }
                     if(fire2.getHeight()<=0){
                         controlRoom.getLine4Remove(mapGenerator.root);
-
-
                     }
                     if(fire3.getHeight()<=0){
                         controlRoom.getLine3Remove(mapGenerator.root);
-
-
                     }
 
-                    if(additionalFire0.getHeight()<=0 ){
+                    if(additionalFire0.getHeight()<=0.1 ){
                         controlRoom.getLine6Remove(mapGenerator.root);
                     }
 
-                    if(additionalFire1.getHeight()<=0 ){
+                    if(additionalFire1.getHeight()<=0.1 ){
                         controlRoom.getLine7Remove(mapGenerator.root);
                     }
 
-                    if(additionalFire2.getHeight()<=0 ){
+                    if(additionalFire2.getHeight()<=0.1 ){
                         controlRoom.getLine5Remove(mapGenerator.root);
                     }
 
-                    if(additionalFire3.getHeight()<=0 ){
+                    if(additionalFire3.getHeight()<=0.1 ){
                         controlRoom.getLine8Remove(mapGenerator.root);
                     }
-
-
                     if(fire0.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0)
                         //if((additionalFire0.getHeight()<=0||isUsed0)&&(additionalFire1.getHeight()<=0||isUsed1)&&(additionalFire2.getHeight()<=0||isUsed2)&&(additionalFire3.getHeight()<=0||isUsed3)){
                             MapGenerator.generateReport.setDisable(false);
@@ -161,14 +149,9 @@ public class HelloApplication extends Application {
             GenerateReport.ImportData(new String[0]);
             launch(args);}
 
-
-    public static Text getTestText() {
-        return testText;
-    }
-
     public void windBehavior()
     {
-        double random = generator.nextInt(4000);
+        double random = generator.nextInt(5);
         if (random == 1 && fire0.getHeight()>0 && isUsed0)
         {
             mapGenerator.root.getChildren().add(additionalFire0);

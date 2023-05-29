@@ -14,7 +14,7 @@ import javafx.util.Duration;
 public class ControlRoom {
 
     private float howBigIsFire;
-    private boolean isFireOccupied;
+    private static boolean isFireOccupied = true;
     static Rectangle rect1;
     static Rectangle rect2;
     static Rectangle rect3;
@@ -402,46 +402,45 @@ public class ControlRoom {
 
     }
 
-    public Line getLine1Remove(Group root){
+    public static Line getLine1Remove(Group root){
         root.getChildren().remove(waterLine1);
         return waterLine1;
     }
-    public Line getLine2Remove(Group root){
+    public static Line getLine2Remove(Group root){
         root.getChildren().remove(waterLine2);
         return waterLine2;
     }
-    public Line getLine3Remove(Group root){
+    public static Line getLine3Remove(Group root){
         root.getChildren().remove(waterLine3);
         return waterLine3;
     }
-    public Line getLine4Remove(Group root){
+    public static Line getLine4Remove(Group root){
         root.getChildren().remove(waterLine4);
         return waterLine4;
     }
-
-
-    public Line getLine5Remove(Group root){
+    public static Line getLine5Remove(Group root){
         root.getChildren().remove(waterLine5);
         return waterLine5;
     }
-    public Line getLine6Remove(Group root){
+    public static Line getLine6Remove(Group root){
         root.getChildren().remove(waterLine6);
         return waterLine6;
     }
-    public Line getLine7Remove(Group root){
+    public static Line getLine7Remove(Group root){
         root.getChildren().remove(waterLine7);
         return waterLine7;
     }
-    public Line getLine8Remove(Group root){
+    public static Line getLine8Remove(Group root){
         root.getChildren().remove(waterLine8);
         return waterLine8;
     }
 
     public static Line LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
-        waterLine5 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
-        if (additionalFire.getHeight() > 0) {
+        if (additionalFire.getHeight() > 0 && isFireOccupied) {
+            waterLine5 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
             waterLine5.setStroke(Color.BLUE);
             root.getChildren().add(waterLine5);
+            isFireOccupied = false;
         }
         return waterLine5;
     }
