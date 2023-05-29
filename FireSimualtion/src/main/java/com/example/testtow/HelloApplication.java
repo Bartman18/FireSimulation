@@ -25,10 +25,10 @@ public class HelloApplication extends Application {
     static Text testText = new Text(650,200,"0");
     static MapGenerator mapGenerator = new MapGenerator();
     Random generator = new Random();
-    boolean isUsed0 = true;
-    boolean isUsed1 = true;
-    boolean isUsed2 = true;
-    boolean isUsed3 = true;
+    static boolean isUsed0 = true;
+    static boolean isUsed1 = true;
+    static boolean isUsed2 = true;
+    static boolean isUsed3 = true;
     boolean isComingBack = true;
     boolean isComingBack1 = true;
     boolean isComingBack2 = true;
@@ -105,9 +105,9 @@ public class HelloApplication extends Application {
 
 
                     if(fire0.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0)
-                        if((additionalFire0.getHeight()<=0||isUsed0)&&(additionalFire1.getHeight()<=0||isUsed1)&&(additionalFire2.getHeight()<=0||isUsed2)&&(additionalFire3.getHeight()<=0||isUsed3)){
+                        //if((additionalFire0.getHeight()<=0||isUsed0)&&(additionalFire1.getHeight()<=0||isUsed1)&&(additionalFire2.getHeight()<=0||isUsed2)&&(additionalFire3.getHeight()<=0||isUsed3)){
                             MapGenerator.generateReport.setDisable(false);
-                        }
+                        //}
 
                     LeftU(fire0);
                     RightU(fire1);
@@ -125,7 +125,9 @@ public class HelloApplication extends Application {
                 }
             }.start();
         }
-        public static void main(String[] args) {launch(args);}
+        public static void main(String[] args) {
+            GenerateReport.ImportData(new String[0]);
+            launch(args);}
 
 
     public static Text getTestText() {
@@ -191,9 +193,6 @@ public class HelloApplication extends Application {
         }
         return  fire;
     }
-
-
-
 
     public boolean getIsUsed0() {
         return isUsed0;

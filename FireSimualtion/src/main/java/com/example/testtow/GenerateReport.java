@@ -26,23 +26,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class GenerateReport {
-    public static void GenerateReport(String[] args) {
-        Document document = new Document();
-
+    static double size[] = new double[4];
+    static double surface[]= new double[4];
+    static double sizead[] = new double[4];
+    static double surfacead[] = new double[4];
+    public static void ImportData(String[] args){
         FireControl fireControl = new FireControl();
-        double size[] = new double[4];
         size[0] = fireControl.getFire0().getHeight();
-        double surface[]= new double[4];
         surface[0] = size[0]*size[0];
         size[1] = fireControl.getFire1().getHeight();
         surface[1] = size[1]*size[1];
         size[2] = fireControl.getFire2().getHeight();
         surface[2] = size[2]*size[2];
-        size[3] = fireControl.getFire1().getHeight();
+        size[3] = fireControl.getFire3().getHeight();
         surface[3] = size[3]*size[3];
-        double sizead[] = new double[4];
         sizead[0] = fireControl.getAdditionalFire0().getHeight();
-        double surfacead[] = new double[4];
         surfacead[0] = sizead[0]*sizead[0];
         sizead[1] = fireControl.getAdditionalFire1().getHeight();
         surfacead[1] = sizead[1]*sizead[1];
@@ -50,6 +48,10 @@ public class GenerateReport {
         surfacead[2] = sizead[2]*sizead[2];
         sizead[3] = fireControl.getAdditionalFire3().getHeight();
         surfacead[3] = sizead[3]*sizead[3];
+    }
+
+    public static void GenerateReport(String[] args) {
+        Document document = new Document();
         HelloApplication helloApp = new HelloApplication();
         boolean booleanadditional[] = new boolean[4];
         booleanadditional[0] = helloApp.getIsUsed0();
@@ -59,13 +61,13 @@ public class GenerateReport {
 
         double maxValueAdFire = 0;
         for (int i = 0; i < 4; i++) {
-            if (booleanadditional[i]) { // Sprawdzenie parametru
-                maxValueAdFire = Math.max(maxValueAdFire, sizead[i]);
+            if (!booleanadditional[i]) { // Sprawdzenie parametru
+                maxValueAdFire = Math.max(maxValueAdFire, surfacead[i]);
             }
         }
         double maxValueFire = 0;
         for (int i = 0; i < 4; i++) {
-                maxValueFire = Math.max(maxValueFire, size[i]);
+                maxValueFire = Math.max(maxValueFire, surface[i]);
         }
         double maxValueFireAll = 0;
         if(maxValueFire>maxValueAdFire)
@@ -76,18 +78,18 @@ public class GenerateReport {
         {
             maxValueFireAll=maxValueAdFire;
         }
-        double minValueAdFire = 0;
+        double minValueAdFire = 1000;
         for (int i = 0; i < 4; i++) {
-            if (booleanadditional[i]) { // Sprawdzenie parametru
-                minValueAdFire = Math.min(minValueAdFire, sizead[i]);
+            if (!booleanadditional[i]) { // Sprawdzenie parametru
+                minValueAdFire = Math.min(minValueAdFire, surfacead[i]);
             }
         }
-        double minValueFire = 0;
+        double minValueFire = 1000;
         for (int i = 0; i < 4; i++) {
-            minValueFire = Math.min(minValueFire, size[i]);
+            minValueFire = Math.min(minValueFire, surface[i]);
         }
-        double minValueFireAll = 0;
-        if(maxValueFire>maxValueAdFire)
+        double minValueFireAll = 1000;
+        if(minValueFire>minValueAdFire)
         {
             minValueFireAll=minValueAdFire;
         }
@@ -97,6 +99,13 @@ public class GenerateReport {
         }
         String maxValueFireAllStr = Double.toString(maxValueFireAll);
         String minValueFireAllStr = Double.toString(minValueFireAll);
+        double CountFire = 4;
+        for (int i = 0; i < 4; i++) {
+            if (!booleanadditional[i]) { // Sprawdzenie parametru
+                CountFire++;
+            }
+        }
+        String CountFireStr = Double.toString(CountFire);
 
         try {
             PdfWriter.getInstance(document, new FileOutputStream("raport_z_symulacji.pdf"));
@@ -157,8 +166,16 @@ public class GenerateReport {
             Phrase valuePhrase5 = new Phrase("będzie litrów", boldFont);
             contentParagraph5.add(valuePhrase5);
             contentParagraph5.setIndentationLeft(40);
-            contentParagraph5.setSpacingAfter(420);
+            contentParagraph5.setSpacingAfter(25);
             document.add(contentParagraph5);
+
+            // Tekst - Zawartość raportu
+            Paragraph contentParagraph6 = new Paragraph("Ilość pożarów: ", font);
+            Phrase valuePhrase6 = new Phrase(CountFireStr, boldFont);
+            contentParagraph6.add(valuePhrase6);
+            contentParagraph6.setIndentationLeft(40);
+            contentParagraph6.setSpacingAfter(380);
+            document.add(contentParagraph6);
 
             // Pozioma kreska
             LineSeparator lineSeparator2 = new LineSeparator();
@@ -172,17 +189,17 @@ public class GenerateReport {
 
             Font footerFont = new Font(baseFont, 14, Font.NORMAL, BaseColor.BLACK);
 
-            PdfPCell cell1 = new PdfPCell(new Phrase("Cipior\n273156", footerFont));
+            PdfPCell cell1 = new PdfPCell(new Phrase("Cipior Piotr\n273156", footerFont));
             cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell1.setBorder(NO_BORDER);
             table.addCell(cell1);
 
-            PdfPCell cell2 = new PdfPCell(new Phrase("Iwanicki\n273163", footerFont));
+            PdfPCell cell2 = new PdfPCell(new Phrase("Iwanicki Bartosz\n273163", footerFont));
             cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell2.setBorder(NO_BORDER);
             table.addCell(cell2);
 
-            PdfPCell cell3 = new PdfPCell(new Phrase("Siedlak\n273161", footerFont));
+            PdfPCell cell3 = new PdfPCell(new Phrase("Siedlak Maciej\n273161", footerFont));
             cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell3.setBorder(NO_BORDER);
             table.addCell(cell3);
@@ -192,6 +209,23 @@ public class GenerateReport {
             document.close();
 
             System.out.println("Raport z przeprowadzonej symulacji został wygenerowany.");
+
+
+
+            //Sprawdzenie wartości
+            System.out.println(size[0]);
+            System.out.println(surface[0]);
+            System.out.println(surface[1]);
+            System.out.println(surface[2]);
+            System.out.println(surface[3]);
+            System.out.println(surfacead[0]);
+            System.out.println(surfacead[1]);
+            System.out.println(surfacead[2]);
+            System.out.println(surfacead[3]);
+            System.out.println(booleanadditional[0]);
+            System.out.println(booleanadditional[1]);
+            System.out.println(booleanadditional[2]);
+            System.out.println(booleanadditional[3]);
 
             // Otwieranie pliku PDF w przeglądarce
             File pdfFile = new File("raport_z_symulacji.pdf");
