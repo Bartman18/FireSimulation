@@ -44,7 +44,7 @@ public class ControlRoom {
             waterLine1 = new Line(rect1.getX() + ttLeft.getByX(), rect1.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine1.setStroke(Color.BLUE);
             root.getChildren().add(waterLine1);
-            HelloApplication.XD=true;});
+            HelloApplication.schouldPutOff0=true;});
         /*sequentialTransition.setOnFinished(event -> {
             Line waterLine = new Line(rect.getX() + ttLeft.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine.setStroke(Color.BLUE);
@@ -110,7 +110,7 @@ public class ControlRoom {
             waterLine2 = new Line(rect2.getX() + ttLeft.getByX()+ ttRight.getByX(), rect2.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine2.setStroke(Color.BLUE);
             root.getChildren().add(waterLine2);
-            HelloApplication.XD1 = true;
+            HelloApplication.schouldPutOff1 = true;
         });
 
        /* sequentialTransition.setOnFinished(event -> {
@@ -169,7 +169,7 @@ public class ControlRoom {
             waterLine3 = new Line(rect3.getX() + ttLeft.getByX()+ttRight.getByX(), rect3.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine3.setStroke(Color.BLUE);
             root.getChildren().add(waterLine3);
-            HelloApplication.XD2 = true;
+            HelloApplication.schouldPutOff2 = true;
 
         });
 
@@ -231,7 +231,7 @@ public class ControlRoom {
             waterLine4 = new Line(190,500, fire.getX(), fire.getY());
             waterLine4.setStroke(Color.BLUE);
             root.getChildren().add(waterLine4);
-            HelloApplication.XD3 = true;
+            HelloApplication.schouldPutOff3 = true;
         });
 
         /*sequentialTransition.setOnFinished(event -> {

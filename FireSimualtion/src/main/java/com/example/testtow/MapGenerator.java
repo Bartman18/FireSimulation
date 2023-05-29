@@ -23,7 +23,7 @@ import javafx.animation.AnimationTimer;
 
 public class MapGenerator {
 
-
+    public static Button generateReport;
     EventHandler<ActionEvent> generateReportEvent = e -> {
         GenerateReport generateReport = new GenerateReport();
         generateReport.GenerateReport(new String[0]);
@@ -40,11 +40,12 @@ public class MapGenerator {
         primaryStage.setResizable(false);
 
         //region UI
-        Button generateReport = new Button("Generuj raport");
+        generateReport = new Button("Generuj raport");
         generateReport.maxHeight(30);
         generateReport.maxWidth(100);
         generateReport.setLayoutX(650);
         generateReport.setLayoutY(550);
+        generateReport.setDisable(true);
         generateReport.setOnAction(generateReportEvent);
 
         Button windOnTrue = new Button("Turn On/Off wind");
@@ -53,7 +54,6 @@ public class MapGenerator {
         windOnTrue.setLayoutX(650);
         windOnTrue.setLayoutY(450);
         windOnTrue.setOnAction(turnWindEvent);
-
         //endregion
 
         //region lines
@@ -121,8 +121,6 @@ public class MapGenerator {
 
         //region control room
         ControlRoom controlRoom = new ControlRoom();
-      /*  Rectangle rect;
-        rect = controlRoom.LeftLower();*/
         //endregion
         FireControl fireControl = new FireControl();
         Rectangle fire0 = fireControl.getFire0();
@@ -131,24 +129,12 @@ public class MapGenerator {
         Rectangle fire3 = fireControl.getFire3();
         Rectangle additionalFire0 = fireControl.getAdditionalFire0();
 
-        /*ControlRoom.moveRectangleBasedOnFirePosition(fire0,additionalFire0,root);
-        ControlRoom.moveRectangleBasedOnFirePosition(fire1,additionalFire0,root);
-        ControlRoom.moveRectangleBasedOnFirePosition(fire2,additionalFire0,root);
-        ControlRoom.moveRectangleBasedOnFirePosition(fire3,additionalFire0,root);*/
-
-
-
-
         //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
-        //root.getChildren().addAll(fire0, fire1, fire2, fire3);
         root.getChildren().add(whiteRect);
-
         root.getChildren().addAll(generateReport, windOnTrue);
-
         root.getChildren().add(fireControl.getWindText());
         root.getChildren().add(HelloApplication.getTestText());
-        //root.getChildren().add(rect);
         //endregion
     }
 

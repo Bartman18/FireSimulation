@@ -33,10 +33,10 @@ public class HelloApplication extends Application {
     boolean isComingBack1 = true;
     boolean isComingBack2 = true;
     boolean isComingBack3 = true;
-    public static boolean XD = false;
-    public static boolean XD1 = false;
-    public static boolean XD2 = false;
-    public static boolean XD3 = false;
+    public static boolean schouldPutOff0 = false;
+    public static boolean schouldPutOff1 = false;
+    public static boolean schouldPutOff2 = false;
+    public static boolean schouldPutOff3 = false;
 
     Rectangle fire0 = fireControl.getFire0();
     Rectangle fire1 = fireControl.getFire1();
@@ -68,17 +68,16 @@ public class HelloApplication extends Application {
             new AnimationTimer() {
                 @Override public void handle(long currentNanoTime) {
 
-                    if (XD) {
+                    if (schouldPutOff0) {
                         puttingOff(fire0, 0.03);
-
                     }
-                    if(XD1){
+                    if(schouldPutOff1){
                         puttingOff(fire1, 0.03);
                     }
-                   if(XD2){
+                   if(schouldPutOff2){
                         puttingOff(fire3, 0.03);
                     }
-                    if(XD3){
+                    if(schouldPutOff3){
                         puttingOff(fire2, 0.03);
                     }
 
@@ -100,14 +99,16 @@ public class HelloApplication extends Application {
 
                     }
 
+
+                    if(fire0.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0 && fire1.getHeight()<=0)
+                        if((additionalFire0.getHeight()<=0||isUsed0)&&(additionalFire1.getHeight()<=0||isUsed1)&&(additionalFire2.getHeight()<=0||isUsed2)&&(additionalFire3.getHeight()<=0||isUsed3)){
+                            MapGenerator.generateReport.setDisable(false);
+                        }
+
                     LeftU(fire0);
                     RightU(fire1);
                     LeftL(fire2);
                     RightL(fire3);
-
-
-
-
                     if (FireControl.wind) {
                         windBehavior();
                     }
