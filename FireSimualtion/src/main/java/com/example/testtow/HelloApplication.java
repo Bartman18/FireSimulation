@@ -79,25 +79,60 @@ public class HelloApplication extends Application {
                     }
 
 
+                    //additionalFire waterline
+                    if(additionalFire0.getHeight()>0 && fire0.getHeight()<=0 && !isUsed0){
+                        controlRoom.LeftUpperAdditionalFire(additionalFire0,mapGenerator.root);
+                        puttingOff(additionalFire0,0.03);
+                    }
+                    if(additionalFire1.getHeight()>0 && fire1.getHeight()<=0 && !isUsed1){
+                        controlRoom.RightUpperAdditionalFire(additionalFire1,mapGenerator.root);;
+                        puttingOff(additionalFire1,0.03);
+                    }
+                    if(additionalFire2.getHeight()>0 && fire2.getHeight()<=0 && !isUsed2){
+                        controlRoom.LeftLowerAdditionalFIRE(additionalFire2,mapGenerator.root);
+                        puttingOff(additionalFire2,0.03);
+                    }
+                    if(additionalFire3.getHeight()>0 && fire3.getHeight()<=0 && !isUsed3){
+                        controlRoom.RightLowerAdditionalFire(additionalFire3,mapGenerator.root);
+                        puttingOff(additionalFire3,0.03);
+
+                    }
+
+                    //remove water-fire
                     if(fire0.getHeight()<=0){
                         controlRoom.getLine1Remove(mapGenerator.root);
-                        controlRoom.LeftUpperAdditionalFire(additionalFire0,mapGenerator.root);
+
 
                     }
                     if(fire1.getHeight()<=0){
                         controlRoom.getLine2Remove(mapGenerator.root);
-                        controlRoom.RightUpperAdditionalFire(additionalFire1,mapGenerator.root);;
 
                     }
                     if(fire2.getHeight()<=0){
                         controlRoom.getLine4Remove(mapGenerator.root);
-                        controlRoom.LeftLowerAdditionalFIRE(additionalFire2,mapGenerator.root);
+
 
                     }
                     if(fire3.getHeight()<=0){
                         controlRoom.getLine3Remove(mapGenerator.root);
-                        controlRoom.RightLowerAdditionalFire(additionalFire3,mapGenerator.root);
 
+
+                    }
+
+                    if(additionalFire0.getHeight()<=0 ){
+                        controlRoom.getLine6Remove(mapGenerator.root);
+                    }
+
+                    if(additionalFire1.getHeight()<=0 ){
+                        controlRoom.getLine7Remove(mapGenerator.root);
+                    }
+
+                    if(additionalFire2.getHeight()<=0 ){
+                        controlRoom.getLine5Remove(mapGenerator.root);
+                    }
+
+                    if(additionalFire3.getHeight()<=0 ){
+                        controlRoom.getLine8Remove(mapGenerator.root);
                     }
 
 
