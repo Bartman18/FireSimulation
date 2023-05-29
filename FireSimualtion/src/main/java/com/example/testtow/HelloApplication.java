@@ -84,18 +84,22 @@ public class HelloApplication extends Application {
 
                     if(fire0.getHeight()<=0){
                         controlRoom.getLine1Remove(mapGenerator.root);
+                        controlRoom.LeftUpperAdditionalFire(additionalFire0,mapGenerator.root);
 
                     }
                     if(fire1.getHeight()<=0){
                         controlRoom.getLine2Remove(mapGenerator.root);
+                        controlRoom.RightUpperAdditionalFire(additionalFire1,mapGenerator.root);;
 
                     }
                     if(fire2.getHeight()<=0){
                         controlRoom.getLine4Remove(mapGenerator.root);
+                        controlRoom.LeftLowerAdditionalFIRE(additionalFire2,mapGenerator.root);
 
                     }
                     if(fire3.getHeight()<=0){
                         controlRoom.getLine3Remove(mapGenerator.root);
+                        controlRoom.RightLowerAdditionalFire(additionalFire3,mapGenerator.root);
 
                     }
 
@@ -159,7 +163,7 @@ public class HelloApplication extends Application {
     }
     public Rectangle LeftU(Rectangle fire){
 
-        if(fire.getHeight()<=0 && isComingBack){
+        if(fire.getHeight()<=0 && isComingBack && (additionalFire0.getHeight()<=0 || isUsed0)){
             controlRoom.LeftUpperBack(fire);
             isComingBack =false;
         }
@@ -167,21 +171,21 @@ public class HelloApplication extends Application {
         return fire;
     }
     public Rectangle RightU(Rectangle fire){
-            if(fire.getHeight()<=0 && isComingBack2){
+            if(fire.getHeight()<=0 && isComingBack2 && (additionalFire1.getHeight()<=0 || isUsed1)){
                 controlRoom.RightUpperBack(fire);
                 isComingBack2 = false;
             }
             return  fire;
     }
     public Rectangle RightL(Rectangle fire){
-        if(fire.getHeight()<=0 && isComingBack3  ){
+        if(fire.getHeight()<=0 && isComingBack3 && (additionalFire3.getHeight()<=0 || isUsed3)  ){
             controlRoom.RightLowerBack(fire);
             isComingBack3 = false;
         }
         return  fire;
     }
     public Rectangle LeftL(Rectangle fire){
-        if(fire.getHeight()<=0 && isComingBack1){
+        if(fire.getHeight()<=0 && isComingBack1 && (additionalFire2.getHeight()<=0 || isUsed2)){
             controlRoom.LeftLowerBack(fire);
             isComingBack1 = false;
         }

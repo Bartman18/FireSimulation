@@ -24,6 +24,17 @@ public class ControlRoom {
     static Line waterLine3;
     static Line waterLine4;
 
+    public double intitalX1;
+    public double initialY1 ;
+
+    private double intitalX2;
+    private double inititalY2;
+    private double intitalX3;
+    private double inititalY3;
+    private double intitalX4;
+    private double inititalY4;
+
+
 
     public Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
 
@@ -38,9 +49,13 @@ public class ControlRoom {
         ttUp.setByY(-100);
 
 
+
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp);
         sequentialTransition.play();
         sequentialTransition.setOnFinished(event -> {
+            intitalX1 = rect1.getX() + ttLeft.getByX();
+            initialY1 = rect1.getY() + ttUp.getByY();
+
             waterLine1 = new Line(rect1.getX() + ttLeft.getByX(), rect1.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine1.setStroke(Color.BLUE);
             root.getChildren().add(waterLine1);
@@ -103,10 +118,16 @@ public class ControlRoom {
         ttRight.setByX(100);
 
 
+
+
+
+
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp, ttRight);
         sequentialTransition.play();
 
         sequentialTransition.setOnFinished(event -> {
+            intitalX2 = rect2.getX() +ttLeft.getByX() +ttRight.getByX();
+            inititalY2 = rect2.getY() + ttUp.getByY();
             waterLine2 = new Line(rect2.getX() + ttLeft.getByX()+ ttRight.getByX(), rect2.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine2.setStroke(Color.BLUE);
             root.getChildren().add(waterLine2);
@@ -153,7 +174,7 @@ public class ControlRoom {
         rect3.setFill(Color.VIOLET);
 
         TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect3);
-        ttLeft.setByX(-190);
+        ttLeft.setByX(-190) ;
 
         TranslateTransition ttUp = new TranslateTransition(Duration.millis(2000), rect3);
         ttUp.setByY(115);
@@ -162,10 +183,14 @@ public class ControlRoom {
         ttRight.setByX(100);
 
 
+
+
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp, ttRight);
         sequentialTransition.play();
 
         sequentialTransition.setOnFinished(event -> {
+            intitalX3 = rect3.getX() + ttLeft.getByX()+ttRight.getByX();
+            inititalY3 = rect3.getY()+ttUp.getByY();
             waterLine3 = new Line(rect3.getX() + ttLeft.getByX()+ttRight.getByX(), rect3.getY() + ttUp.getByY(), fire.getX(), fire.getY());
             waterLine3.setStroke(Color.BLUE);
             root.getChildren().add(waterLine3);
@@ -222,12 +247,15 @@ public class ControlRoom {
         TranslateTransition ttLeft1 = new TranslateTransition(Duration.millis(2000),rect4);
         ttLeft1.setToX(-300);
 
+
         SequentialTransition sequentialTransition = new SequentialTransition(rect4, ttLeft, ttUp,ttLeft1);
 
 
         sequentialTransition.play();
 
         sequentialTransition.setOnFinished(event -> {
+            intitalX4 = rect4.getX()+ ttLeft.getByX()+ ttLeft1.getByX();
+            inititalY4 = rect4.getY()+ ttUp.getByY();
             waterLine4 = new Line(190,500, fire.getX(), fire.getY());
             waterLine4.setStroke(Color.BLUE);
             root.getChildren().add(waterLine4);
@@ -397,7 +425,7 @@ public class ControlRoom {
     }
 
     public Line LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine1 = new Line(rect1.getX() - 100 , rect1.getY()-340 , additionalFire.getX(), additionalFire.getY());
+        waterLine1 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
         if(additionalFire.getHeight()>0) {
             waterLine1.setStroke(Color.BLUE);
             root.getChildren().add(waterLine1);
@@ -406,7 +434,7 @@ public class ControlRoom {
     }
 
     public Line RightUpperAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine2 = new Line(rect2.getX() + 100 -190, rect2.getY() -135, additionalFire.getX(), additionalFire.getY());
+        waterLine2 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
         if(additionalFire.getHeight()>0) {
             waterLine2.setStroke(Color.BLUE);
             root.getChildren().add(waterLine2);
@@ -416,7 +444,7 @@ public class ControlRoom {
     }
 
     public Line RightLowerAdditionalFire(Rectangle additionalFire, Group root){
-        waterLine3= new Line(rect3.getX() + 100-190, rect3.getY() + 115, additionalFire.getX(), additionalFire.getY());
+        waterLine3= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
         if(additionalFire.getHeight()>0) {
             waterLine3.setStroke(Color.BLUE);
             root.getChildren().add(waterLine3);
