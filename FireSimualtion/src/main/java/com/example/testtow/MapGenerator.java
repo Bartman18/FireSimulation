@@ -2,15 +2,10 @@ package com.example.testtow;
 
 import com.example.testtow.Fire.FireControl;
 import com.example.testtow.firetrucks.ControlRoom;
-import com.example.testtow.GenerateReport;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -19,27 +14,44 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import javafx.animation.AnimationTimer;
 
 public class MapGenerator {
 
     public static Button generateReport;
     EventHandler<ActionEvent> generateReportEvent = e -> {
         GenerateReport generateReport = new GenerateReport();
-        generateReport.GenerateReport(new String[0]);
+        generateReport.GenerateReport();
     };
 
 
     EventHandler<ActionEvent> turnWindEvent = e -> FireControl.windChange();
 
     Group root = new Group();
-    public void MapGeneration(Stage primaryStage) throws Exception {
+    public void MapGeneration(Stage primaryStage) {
 
 
         primaryStage.setTitle("FireSimulation");
         primaryStage.setResizable(false);
 
         //region UI
+        Rectangle yellow = new Rectangle(650,50,20,20);
+        yellow.setFill(Color.YELLOW);
+        Text yellowText = new Text("- Light firetruck");
+        yellowText.setX(680);
+        yellowText.setY(114);
+
+        Rectangle red = new Rectangle(650,100,20,20);
+        red.setFill(Color.RED);
+        Text redText = new Text("- Medium firetruck");
+        redText.setX(680);
+        redText.setY(64);
+
+        Rectangle purple = new Rectangle(650,150,20,20);
+        purple.setFill(Color.PURPLE);
+        Text purpleText = new Text("- Heavy firetruck");
+        purpleText.setX(680);
+        purpleText.setY(164);
+
         generateReport = new Button("Generuj raport");
         generateReport.maxHeight(30);
         generateReport.maxWidth(100);
@@ -118,20 +130,12 @@ public class MapGenerator {
         Rectangle whiteRect = new Rectangle(600, 0, 200, 600);
         whiteRect.setFill(Color.WHITE);
         //endregion
-
-        //region control room
-        ControlRoom controlRoom = new ControlRoom();
-        //endregion
         FireControl fireControl = new FireControl();
-        Rectangle fire0 = fireControl.getFire0();
-        Rectangle fire1 =fireControl.getFire1();
-        Rectangle fire2 =fireControl.getFire2();
-        Rectangle fire3 = fireControl.getFire3();
-        Rectangle additionalFire0 = fireControl.getAdditionalFire0();
 
         //region display
         root.getChildren().addAll(line1, line2, line3, line4, line5, line6, FireStation, text1);
         root.getChildren().add(whiteRect);
+        root.getChildren().addAll(yellow,yellowText,red,redText,purpleText,purple);
         root.getChildren().addAll(generateReport, windOnTrue);
         root.getChildren().add(fireControl.getWindText());
         //endregion

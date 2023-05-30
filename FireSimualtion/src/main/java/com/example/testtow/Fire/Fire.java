@@ -1,9 +1,9 @@
 package com.example.testtow.Fire;
 
 public class Fire  {
-    private int strength;
-    private  int centerOfFireX;
-    private int centerOfFireY;
+    private final int strength;
+    private final int centerOfFireX;
+    private final int centerOfFireY;
 
 public Fire(int strength_, int centerOfFireY_, int centerOfFireX_)
 {

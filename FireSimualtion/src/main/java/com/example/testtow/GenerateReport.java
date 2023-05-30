@@ -1,37 +1,29 @@
 package com.example.testtow;
 
 import com.example.testtow.Fire.FireControl;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.draw.LineSeparator;
-import com.itextpdf.text.Paragraph;
-import static com.itextpdf.text.pdf.PdfPCell.NO_BORDER;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
-import com.example.testtow.HelloApplication;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 
-
-
-
-import java.awt.Desktop;
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import static com.itextpdf.text.pdf.PdfPCell.NO_BORDER;
+
 public class GenerateReport {
-    static double size[] = new double[4];
-    static double surface[]= new double[4];
-    static double sizead[] = new double[4];
-    static double surfacead[] = new double[4];
-    public static void ImportData(String[] args){
-        FireControl fireControl = new FireControl();
+    static double[] size = new double[4];
+    static double[] surface = new double[4];
+    static double[] sizead = new double[4];
+    static double[] surfacead = new double[4];
+
+    static FireControl fireControl = new FireControl();
+    public static void ImportData(){
         size[0] = fireControl.getFire0().getHeight();
         surface[0] = size[0]*size[0];
         size[1] = fireControl.getFire1().getHeight();
@@ -50,33 +42,31 @@ public class GenerateReport {
         surfacead[3] = sizead[3]*sizead[3];
     }
 
-    public static void GenerateReport(String[] args) {
-        FireControl fireControl = new FireControl();
+    public static void GenerateReport() {
         Document document = new Document();
         HelloApplication helloApp = new HelloApplication();
-        boolean booleanadditional[] = new boolean[4];
+        boolean[] booleanadditional = new boolean[4];
         booleanadditional[0] = helloApp.getIsUsed0();
         booleanadditional[1] = helloApp.getIsUsed1();
         booleanadditional[2] = helloApp.getIsUsed2();
         booleanadditional[3] = helloApp.getIsUsed3();
-        double waterFire[] = new double[4];
+        double[] waterFire = new double[4];
         waterFire[0] = surface[0]*1.5;
         waterFire[1] = surface[1]*1.5;
         waterFire[2] = surface[2]*1.5;
         waterFire[3] = surface[3]*1.5;
-        double waterFireAd[] = new double[4];
+        double[] waterFireAd = new double[4];
         waterFireAd[0] = surfacead[0]*1.5;
         waterFireAd[1] = surfacead[1]*1.5;
         waterFireAd[2] = surfacead[2]*1.5;
         waterFireAd[3] = surfacead[3]*1.5;
-        double waterFireAll = 0;
+        double waterFireAll;
         waterFireAll = waterFire[0] + waterFire[1] + waterFire[2] + waterFire[3];
         for (int i = 0; i < 4; i++) {
             if (!booleanadditional[i]) { // Sprawdzenie parametru
                 waterFireAll += waterFireAd[i];
             }
         }
-                System.out.println(fireControl.getAdditionalFire0().getX());
         double maxValueAdFire = 0;
         for (int i = 0; i < 4; i++) {
             if (!booleanadditional[i]) { // Sprawdzenie parametru
@@ -87,15 +77,7 @@ public class GenerateReport {
         for (int i = 0; i < 4; i++) {
                 maxValueFire = Math.max(maxValueFire, surface[i]);
         }
-        double maxValueFireAll = 0;
-        if(maxValueFire>maxValueAdFire)
-        {
-            maxValueFireAll=maxValueFire;
-        }
-        else
-        {
-            maxValueFireAll=maxValueAdFire;
-        }
+        double maxValueFireAll = Math.max(maxValueFire, maxValueAdFire);
         double minValueAdFire = 1000;
         for (int i = 0; i < 4; i++) {
             if (!booleanadditional[i]) { // Sprawdzenie parametru
@@ -106,15 +88,7 @@ public class GenerateReport {
         for (int i = 0; i < 4; i++) {
             minValueFire = Math.min(minValueFire, surface[i]);
         }
-        double minValueFireAll = 1000;
-        if(minValueFire>minValueAdFire)
-        {
-            minValueFireAll=minValueAdFire;
-        }
-        else
-        {
-            minValueFireAll=minValueFire;
-        }
+        double minValueFireAll = Math.min(minValueFire, minValueAdFire);
         String maxValueFireAllStr = Double.toString(maxValueFireAll);
         String minValueFireAllStr = Double.toString(minValueFireAll);
         double CountFire = 4;
@@ -243,23 +217,6 @@ public class GenerateReport {
 
             System.out.println("Raport z przeprowadzonej symulacji został wygenerowany.");
 
-
-
-            //Sprawdzenie wartości
-            System.out.println(size[0]);
-            System.out.println(surface[0]);
-            System.out.println(surface[1]);
-            System.out.println(surface[2]);
-            System.out.println(surface[3]);
-            System.out.println(surfacead[0]);
-            System.out.println(surfacead[1]);
-            System.out.println(surfacead[2]);
-            System.out.println(surfacead[3]);
-            System.out.println(booleanadditional[0]);
-            System.out.println(booleanadditional[1]);
-            System.out.println(booleanadditional[2]);
-            System.out.println(booleanadditional[3]);
-
             // Otwieranie pliku PDF w przeglądarce
             File pdfFile = new File("raport_z_symulacji.pdf");
             if (pdfFile.exists()) {
@@ -271,9 +228,7 @@ public class GenerateReport {
             } else {
                 System.out.println("Plik PDF nie został znaleziony.");
             }
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
     }

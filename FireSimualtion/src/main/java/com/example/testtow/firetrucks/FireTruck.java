@@ -1,41 +1,28 @@
 package com.example.testtow.firetrucks;
 
+import javafx.scene.paint.Color;
+
 public class FireTruck {
-    private int ID;
-    private int maxWaterStorage;
-    private int actualWaterStorage;
-    private float speed;
-    private  float refillingSpeed;
+    private final int ID;
+    private final double howFastIsPuttingOff;
+    private final Color color;
 
-    public FireTruck(int ID, int maxWaterStorage, int actualWaterStorage, float speed, float refillingSpeed){
+    public FireTruck(int ID, double howFastIsPuttingOff, Color color){
         this.ID = ID;
-        this.maxWaterStorage = maxWaterStorage;
-        this.actualWaterStorage = actualWaterStorage;
-        this.speed = speed;
-        this.refillingSpeed = refillingSpeed;
+        this.howFastIsPuttingOff = howFastIsPuttingOff;
+        this.color = color;
     }
-
-
     public int getID() {
         return ID;
     }
 
-    public float getRefillingSpeed() {
-        return refillingSpeed;
+    public double getHowFastIsPuttingOff() {
+        return howFastIsPuttingOff;
     }
 
-    public float getSpeed() {
-        return speed;
+    public Color getColor() {
+        return color;
     }
-
-    public int getActualWaterStorage() {
-        return actualWaterStorage;
-    }
-
-    public int getMaxWaterStorage() {
-        return maxWaterStorage;
-    }
-
 }
 
 

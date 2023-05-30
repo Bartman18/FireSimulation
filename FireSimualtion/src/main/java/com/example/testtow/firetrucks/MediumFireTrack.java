@@ -1,9 +1,9 @@
 package com.example.testtow.firetrucks;
 
+import javafx.scene.paint.Color;
+
 public class MediumFireTrack extends FireTruck {
-    private int additionalEqupment;
-    public MediumFireTrack(int ID, int maxWaterStorage, int actualWaterStorage, float speed, float refillingSpeed,int additionalEqupment){
-        super(ID,maxWaterStorage,actualWaterStorage,speed,refillingSpeed);
-        this.additionalEqupment = additionalEqupment;
+    public MediumFireTrack(int ID, double howFastIsPuttingOff, Color color){
+        super(ID, howFastIsPuttingOff, color);
     }
 }

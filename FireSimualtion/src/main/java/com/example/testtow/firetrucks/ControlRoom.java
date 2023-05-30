@@ -12,9 +12,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class ControlRoom {
-
-    private float howBigIsFire;
-    private boolean isFireOccupied;
+    //region zmienne
     static Rectangle rect1;
     static Rectangle rect2;
     static Rectangle rect3;
@@ -29,43 +27,29 @@ public class ControlRoom {
     static Line waterLine8;
 
     public static double intitalX1;
-    public static double initialY1 ;
+    public static double initialY1;
 
     private static double intitalX2;
     private static double inititalY2;
     private static double intitalX3;
     private static double inititalY3;
-    private static double intitalX4;
-    private static double inititalY4;
 
     static boolean additionalBoolean1 = true;
     static boolean additionalBoolean2 = true;
     static boolean additionalBoolean3 = true;
     static boolean additionalBoolean4 = true;
-
-
-
-
-
-
-
-
-
-
-    public static Rectangle LeftUpper(Rectangle fire,Rectangle additionalFire,Group root) {
+    //endregion
+    public static Rectangle LeftUpper(Rectangle fire, Group root, FireTruck fireTruck) {
 
         rect1 = new Rectangle(470, 270, 50, 30);
 
-        rect1.setFill(Color.VIOLET);
+        rect1.setFill(fireTruck.getColor());
 
         TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect1);
         ttLeft.setByX(-340);
 
         TranslateTransition ttUp = new TranslateTransition(Duration.millis(1000), rect1);
         ttUp.setByY(-100);
-
-
-
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp);
         sequentialTransition.play();
         sequentialTransition.setOnFinished(event -> {
@@ -76,53 +60,14 @@ public class ControlRoom {
             waterLine1.setStroke(Color.BLUE);
             root.getChildren().add(waterLine1);
             HelloApplication.schouldPutOff0=true;});
-        /*sequentialTransition.setOnFinished(event -> {
-            Line waterLine = new Line(rect.getX() + ttLeft.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
-            waterLine.setStroke(Color.BLUE);
-            root.getChildren().add(waterLine);
-            if(fire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
-            }
-        });
-
-        sequentialTransition.setOnFinished(event -> {
-            Line waterLine = new Line(rect.getX() + ttLeft.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
-            if(additionalFire.getHeight()>0) {
-                waterLine.setStroke(Color.BLUE);
-                root.getChildren().add(waterLine);
-            }
-            if(additionalFire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
-            }
-        });
-*/
-
-
-       /* if(fire.getHeight()<=0) {
-            TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect);
-            ttLeft.setByX(100);
-
-            TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(1000), rect);
-            ttUp.setByY(340);
-            FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
-            fadeOut.setToValue(0);
-
-            SequentialTransition sequentialTransition1 = new SequentialTransition(ttUpback, ttLeftBack, fadeOut);
-
-            sequentialTransition1.play();
-        }
-*/
-
-
-
         return rect1;
     }
 
-    public static Rectangle RightUpper(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle RightUpper(Rectangle fire, Group root, FireTruck fireTruck) {
 
         rect2 = new Rectangle(470, 270, 50, 30);
 
-        rect2.setFill(Color.VIOLET);
+        rect2.setFill(fireTruck.getColor());
 
         TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect2);
         ttLeft.setByX(-190);
@@ -132,12 +77,6 @@ public class ControlRoom {
 
         TranslateTransition ttRight = new TranslateTransition(Duration.millis(2000), rect2);
         ttRight.setByX(100);
-
-
-
-
-
-
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp, ttRight);
         sequentialTransition.play();
 
@@ -149,45 +88,14 @@ public class ControlRoom {
             root.getChildren().add(waterLine2);
             HelloApplication.schouldPutOff1 = true;
         });
-
-       /* sequentialTransition.setOnFinished(event -> {
-            Line waterLine = new Line(rect.getX() + ttLeft.getByX()+ ttRight.getByX(), rect.getY() + ttUp.getByY(), fire.getX(), fire.getY());
-            if(additionalFire.getHeight()>0) {
-                waterLine.setStroke(Color.BLUE);
-                root.getChildren().add(waterLine);
-            }
-            if(additionalFire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
-            }
-        });
-*/
-        /*if(fire.getHeight()<=0) {
-            TranslateTransition ttRigthBack = new TranslateTransition(Duration.millis(2000), rect);
-            ttLeft.setByX(-100);
-
-            TranslateTransition ttUpback = new TranslateTransition(Duration.millis(1000), rect);
-            ttUp.setByY(135);
-
-            TranslateTransition ttLeftBack = new TranslateTransition(Duration.millis(2000), rect);
-            ttRight.setByX(190);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
-            fadeOut.setToValue(0);
-
-            SequentialTransition sequentialTransition1 = new SequentialTransition(
-                    ttRigthBack, ttUpback, ttLeftBack, fadeOut);
-            sequentialTransition1.play();
-       }*/
-
         return rect2;
-
     }
 
-    public static Rectangle RightLower(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle RightLower(Rectangle fire, Group root, FireTruck fireTruck) {
 
 
         rect3 = new Rectangle(470, 270, 50, 30);
-        rect3.setFill(Color.VIOLET);
+        rect3.setFill(fireTruck.getColor());
 
         TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000), rect3);
         ttLeft.setByX(-190) ;
@@ -197,10 +105,6 @@ public class ControlRoom {
 
         TranslateTransition ttRight = new TranslateTransition(Duration.millis(2000), rect3);
         ttRight.setByX(100);
-
-
-
-
         SequentialTransition sequentialTransition = new SequentialTransition(ttLeft, ttUp, ttRight);
         sequentialTransition.play();
 
@@ -213,127 +117,48 @@ public class ControlRoom {
             HelloApplication.schouldPutOff2 = true;
 
         });
-
-/*
-        sequentialTransition.setOnFinished(event -> {
-            Line waterLine = new Line(rect.getX() + ttLeft.getByX()+ttRight.getByX(), rect.getY() + ttUp.getByY(), additionalFire.getX(), additionalFire.getY());
-            if(additionalFire.getHeight()>0) {
-                waterLine.setStroke(Color.BLUE);
-                root.getChildren().add(waterLine);
-            }
-            if(additionalFire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
-            }
-        });
-*/
-
-       /* if(fire.getHeight()<=0) {
-            TranslateTransition ttRightBack = new TranslateTransition(Duration.millis(2000), rect);
-            ttRightBack.setByX(-100);
-
-            TranslateTransition ttDownBack = new TranslateTransition(Duration.millis(2000), rect);
-            ttDownBack.setByY(215);
-
-            TranslateTransition ttRightBack1 = new TranslateTransition(Duration.millis(2000), rect);
-            ttRightBack1.setByX(-190);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
-            fadeOut.setToValue(0);
-
-            SequentialTransition sequentialTransition1 = new SequentialTransition(
-                    ttRightBack, ttDownBack, ttRightBack1, fadeOut);
-            sequentialTransition1.play();
-        }*/
-
-
         return rect3;
-
     }
 
-    public static Rectangle LeftLower(Rectangle fire,Rectangle additionalFire,Group root) {
+    public static Rectangle LeftLower(Rectangle fire, Group root, FireTruck fireTruck) {
         rect4 = new Rectangle(470, 270, 50, 30);
-        rect4.setFill(Color.VIOLET);
-
+        rect4.setFill(fireTruck.getColor());
         TranslateTransition ttLeft = new TranslateTransition(Duration.millis(2000),rect4);
         ttLeft.setToX(-190);
-
         TranslateTransition ttUp = new TranslateTransition(Duration.millis(2000),rect4);
         ttUp.setToY(215);
-
         TranslateTransition ttLeft1 = new TranslateTransition(Duration.millis(2000),rect4);
         ttLeft1.setToX(-300);
-
-
         SequentialTransition sequentialTransition = new SequentialTransition(rect4, ttLeft, ttUp,ttLeft1);
-
-
         sequentialTransition.play();
-
         sequentialTransition.setOnFinished(event -> {
-            intitalX4 = rect4.getX()+ ttLeft.getByX()+ ttLeft1.getByX();
-            inititalY4 = rect4.getY()+ ttUp.getByY();
             waterLine4 = new Line(190,500, fire.getX(), fire.getY());
             waterLine4.setStroke(Color.BLUE);
             root.getChildren().add(waterLine4);
             HelloApplication.schouldPutOff3 = true;
         });
-
-        /*sequentialTransition.setOnFinished(event -> {
-            Line waterLine = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
-            if(additionalFire.getHeight()>0) {
-                waterLine.setStroke(Color.BLUE);
-                root.getChildren().add(waterLine);
-            }
-            if(additionalFire.getHeight()<=0){
-                root.getChildren().remove(waterLine);
-            }
-        });
-*/
-
-
-        /*if(fire.getHeight()<=0) {
-            TranslateTransition ttBack = new TranslateTransition(Duration.millis(2000), rect);
-            ttBack.setByX(300);
-
-            TranslateTransition ttDown = new TranslateTransition(Duration.millis(2000), rect);
-            ttDown.setByY(-215);
-
-            TranslateTransition ttRightBack = new TranslateTransition(Duration.millis(2000), rect);
-            ttRightBack.setByX(190);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), rect);
-            fadeOut.setToValue(0);
-
-            SequentialTransition sequentialTransition1 = new SequentialTransition(
-                    ttBack, ttDown, ttRightBack, fadeOut);
-            sequentialTransition1.play();
-        }*/
-
         return rect4;
     }
-    public static void moveRectangleBasedOnFirePosition(Rectangle fire,Rectangle additionalFire, Group root) {
+    public static void moveRectangleBasedOnFirePosition(Rectangle fire, Group root, FireTruck fireTruck) {
         double x = fire.getX();
         double y = fire.getY();
         ControlRoom controlRoom = new ControlRoom();
         if (x >= 300 && x < 600 && y >= 0 && y < 300) {
-            rect2 = controlRoom.RightUpper(fire,additionalFire,root);
+            rect2 = controlRoom.RightUpper(fire, root, fireTruck);
             root.getChildren().add(rect2);
         } else if (x >= 0 && x < 300 && y >= 0 && y < 300)
         {
-            rect1 = controlRoom.LeftUpper(fire,additionalFire,root);
+            rect1 = controlRoom.LeftUpper(fire, root, fireTruck);
             root.getChildren().add(rect1);
         } else if (x >= 300 && x < 600 && y >= 300 && y < 600) {
-             rect3 = controlRoom.RightLower(fire,additionalFire,root);
+             rect3 = controlRoom.RightLower(fire, root, fireTruck);
             root.getChildren().add(rect3);
         } else if (x >= 0 && x < 300 && y >= 300 && y < 600) {
-            rect4 = controlRoom.LeftLower(fire,additionalFire,root);
+            rect4 = controlRoom.LeftLower(fire, root, fireTruck);
             root.getChildren().add(rect4);
         }
-
     }
-    public Rectangle LeftUpperBack(Rectangle fire) {
-
-
+    public void LeftUpperBack() {
 
         TranslateTransition ttUpback = new TranslateTransition(Duration.millis(2000), rect1);
         ttUpback.setByY(100);
@@ -346,10 +171,9 @@ public class ControlRoom {
         SequentialTransition sequentialTransition1 = new SequentialTransition(ttUpback, ttLeftBack, fadeOut);
 
         sequentialTransition1.play();
-        return rect1;
     }
 
-    public Rectangle RightUpperBack(Rectangle fire){
+    public void RightUpperBack(){
 
             TranslateTransition ttRigthBack = new TranslateTransition(Duration.millis(2000), rect2);
             ttRigthBack.setByX(-100);
@@ -367,11 +191,9 @@ public class ControlRoom {
                     ttRigthBack, ttUpback, ttLeftBack, fadeOut);
             sequentialTransition1.play();
 
-            return rect2;
-
     }
 
-    public Rectangle RightLowerBack(Rectangle fire){
+    public void RightLowerBack(){
         TranslateTransition ttRightBack = new TranslateTransition(Duration.millis(2000), rect3);
         ttRightBack.setByX(-100);
 
@@ -388,10 +210,9 @@ public class ControlRoom {
                 ttRightBack, ttUPBack, ttRightBack1, fadeOut);
         sequentialTransition1.play();
 
-        return rect3;
     }
 
-    public Rectangle LeftLowerBack(Rectangle fire){
+    public void LeftLowerBack(){
 
             TranslateTransition ttBack = new TranslateTransition(Duration.millis(2000), rect4);
             ttBack.setByX(100);
@@ -409,47 +230,36 @@ public class ControlRoom {
                     ttBack, ttDown, ttRightBack, fadeOut);
             sequentialTransition1.play();
 
-            return rect4;
-
-
     }
 
-    public Line getLine1Remove(Group root){
+    public void getLine1Remove(Group root){
         root.getChildren().remove(waterLine1);
-        return waterLine1;
     }
-    public Line getLine2Remove(Group root){
+    public void getLine2Remove(Group root){
         root.getChildren().remove(waterLine2);
-        return waterLine2;
     }
-    public Line getLine3Remove(Group root){
+    public void getLine3Remove(Group root){
         root.getChildren().remove(waterLine3);
-        return waterLine3;
     }
-    public Line getLine4Remove(Group root){
+    public void getLine4Remove(Group root){
         root.getChildren().remove(waterLine4);
-        return waterLine4;
     }
 
 
-    public Line getLine5Remove(Group root){
+    public void getLine5Remove(Group root){
         root.getChildren().remove(waterLine5);
-        return waterLine5;
     }
-    public Line getLine6Remove(Group root){
+    public void getLine6Remove(Group root){
         root.getChildren().remove(waterLine6);
-        return waterLine6;
     }
-    public Line getLine7Remove(Group root){
+    public void getLine7Remove(Group root){
         root.getChildren().remove(waterLine7);
-        return waterLine7;
     }
-    public Line getLine8Remove(Group root){
+    public void getLine8Remove(Group root){
         root.getChildren().remove(waterLine8);
-        return waterLine8;
     }
 
-    public static Line LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
+    public static void LeftLowerAdditionalFIRE(Rectangle additionalFire, Group root) {
 
         if (additionalFire.getHeight() > 0 && additionalBoolean1) {
             waterLine5 = new Line(190, 500, additionalFire.getX(), additionalFire.getY());
@@ -458,10 +268,9 @@ public class ControlRoom {
             additionalBoolean1 = false;
         }
 
-        return waterLine5;
     }
 
-    public static Line LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
+    public static void LeftUpperAdditionalFire(Rectangle additionalFire, Group root){
 
         if(additionalFire.getHeight()>0 && additionalBoolean2) {
             waterLine6 = new Line(intitalX1 ,initialY1, additionalFire.getX(), additionalFire.getY());
@@ -470,10 +279,9 @@ public class ControlRoom {
             additionalBoolean2 = false;
         }
 
-        return waterLine6;
     }
 
-    public static Line RightUpperAdditionalFire(Rectangle additionalFire, Group root){
+    public static void RightUpperAdditionalFire(Rectangle additionalFire, Group root){
 
         if(additionalFire.getHeight()>0 && additionalBoolean3) {
             waterLine7 = new Line(intitalX2,inititalY2, additionalFire.getX(), additionalFire.getY());
@@ -481,22 +289,16 @@ public class ControlRoom {
             root.getChildren().add(waterLine7);
             additionalBoolean3 = false;
         }
-
-
-        return waterLine7;
     }
 
-    public static Line RightLowerAdditionalFire(Rectangle additionalFire, Group root){
+    public static void RightLowerAdditionalFire(Rectangle additionalFire, Group root){
 
         if(additionalFire.getHeight()>0 && additionalBoolean4) {
             waterLine8= new Line(intitalX3,inititalY3, additionalFire.getX(), additionalFire.getY());
             waterLine8.setStroke(Color.BLUE);
             root.getChildren().add(waterLine8);
             additionalBoolean4 = false;
-
         }
-
-        return waterLine8;
     }
 
 

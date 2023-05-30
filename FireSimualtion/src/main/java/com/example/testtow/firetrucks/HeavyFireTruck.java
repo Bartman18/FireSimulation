@@ -1,10 +1,10 @@
 package com.example.testtow.firetrucks;
 
+import javafx.scene.paint.Color;
+
 public class HeavyFireTruck extends FireTruck {
-    private int additionalExtinguisher;
-    public HeavyFireTruck(int ID, int maxWaterStorage, int actualWaterStorage, float speed, float refillingSpeed,int additionalExtinguisher){
-        super(ID,maxWaterStorage,actualWaterStorage,speed,refillingSpeed);
-        this.additionalExtinguisher = additionalExtinguisher;
+    public HeavyFireTruck(int ID, double howFastIsPuttingOff, Color color){
+        super(ID,howFastIsPuttingOff, color);
 
     }
 }
