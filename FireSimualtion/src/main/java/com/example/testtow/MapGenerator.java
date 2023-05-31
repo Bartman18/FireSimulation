@@ -38,13 +38,13 @@ public class MapGenerator {
         yellow.setFill(Color.YELLOW);
         Text yellowText = new Text("- Light firetruck");
         yellowText.setX(680);
-        yellowText.setY(114);
+        yellowText.setY(64);
 
         Rectangle red = new Rectangle(650,100,20,20);
         red.setFill(Color.RED);
         Text redText = new Text("- Medium firetruck");
         redText.setX(680);
-        redText.setY(64);
+        redText.setY(114);
 
         Rectangle purple = new Rectangle(650,150,20,20);
         purple.setFill(Color.PURPLE);
