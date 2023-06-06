@@ -14,6 +14,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Ta metoda odpowiada za wygenerowanie raportu do pliku PDF,
+ * który jest zapisywany, a następnie otwierany w domyślnym programie do obsługi plików PDF w systemie.
+ * Funkcje pobierają dane z innych metod i wyświetlają je w dokumencie.
+ * Ponadto metoda ta oblicza powierzchnie pożaru w oparciu o pobrane wymiary pożaru,
+ * oraz zużycie wody względem przyjętych zasad.
+ */
+
+
 import static com.itextpdf.text.pdf.PdfPCell.NO_BORDER;
 
 public class GenerateReport {
