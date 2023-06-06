@@ -14,7 +14,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-
+/**
+ * Klasa odpowiadającą za tworzenie całego tła aplikacji:
+ * kolor tła, drogi, FireStation, przyciski, tekst,
+ * ustawienie nazwy aplikacji
+ */
 public class MapGenerator {
 
     public static Button generateReport;
