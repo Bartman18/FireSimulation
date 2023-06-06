@@ -1,6 +1,9 @@
 package com.example.testtow.firetrucks;
 
 import javafx.scene.paint.Color;
+/**
+ * Obiekt FireTruck który przyjmuje informacje o szybkośći gaszenia pożaru, kolorze i id
+ */
 
 public class FireTruck {
     private final int ID;
