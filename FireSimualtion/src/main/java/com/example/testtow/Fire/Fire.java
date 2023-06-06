@@ -1,6 +1,10 @@
 package com.example.testtow.Fire;
 
+/**
+ * obiekt ogień który przyjmuje trzy integery informujące o sile płomienia, jego środku w osi X i Y
+ */
 public class Fire  {
+
     private final int strength;
     private final int centerOfFireX;
     private final int centerOfFireY;

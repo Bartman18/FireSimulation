@@ -7,6 +7,12 @@ import javafx.scene.text.Text;
 
 import java.util.Random;
 
+/**
+ * Funkcja która tworzy, przechowuje i pzekazuje dane o ogniach w postaci obiektów square
+ * Każdy ogień jest tworzony w jednym z czterech kwadratów z którego składa się mapa (jeden ogień na kwadrat mapy)
+ * Współżedne są losowane, a nastepnie sprawdzane czy nie znajduja się na drodze lub na gmachu straży, jeśli są
+ * to ich miejsce zostaje wygenerowane ponownie. Znajduję się tutaj też statyczny boolean wiatru.
+ */
 public class FireControl
 {
     static Text windText = new Text(650,500,"wind: false");

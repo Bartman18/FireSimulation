@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="baa04284-0d0a-452a-8fc7-c28fc5cc843a" name="Changes" comment="Robie pusha">
+    <list default="true" id="baa04284-0d0a-452a-8fc7-c28fc5cc843a" name="Changes" comment="push">
+      <change afterPath="$PROJECT_DIR$/FireSimualtion/arialuni.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_05_2023_17_45_[Changes]/ARIALUNI.TTF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/MapGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/Fire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/Fire/FireControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/SuperStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/src/main/java/com/example/testtow/SuperStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/MapGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/FireSimualtion/target/classes/com/example/testtow/MapGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/raport_z_symulacji.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/raport_z_symulacji.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685454918167</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="push">
+      <created>1685531826507</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685531826507</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,7 +249,8 @@
     <MESSAGE value="big wall" />
     <MESSAGE value="Maciokwate" />
     <MESSAGE value="Robie pusha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Robie pusha" />
+    <MESSAGE value="push" />
+    <option name="LAST_COMMIT_MESSAGE" value="push" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

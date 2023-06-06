@@ -11,6 +11,17 @@ import javafx.animation.AnimationTimer;
 
 import java.util.Random;
 
+/**
+ * Główna funkcja programu. Jest tu wywoływanie wszystkich ważnych funkcji (z kontroli ognia, wozów strażackich i tworzenia mapy)
+ * Jest zawarta tutaj pętla która sprawia że symulacja działa w kółko
+ * Znajdują się też tutaj 3 rodzaje dodatkowych funkcji:
+ * - PuttingOff, służaca aby gasić (zmniejszać wielkość) ognie
+ * - windBehaviour, sprawdzająca czy boolean od wiatru jest prawdziwy i jeśli tak to dodawanie dodatkowych ogni
+ * każdy dodatkowy płomień ma 1% szansy na sekunde aby się wygenerować
+ * - choose fireTruck która sprawdza jak duze są ognie w danych częściach mapy i wysyła do nich odpowiedni wóż strażacki
+ * Są też mniejsze funkcje które służą do zawracania wozów strażackich gdy skończą gasić ognie oraz getery
+ * booleanów które sprawdzają czy dodatkowe ognie są wygenerowane
+ */
 public class HelloApplication extends Application {
 
     //region zmienna
